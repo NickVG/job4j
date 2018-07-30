@@ -2,7 +2,7 @@ package ru.job4j.DummyBot;
 
 
 /**
- * Class Calculate решение задачи 4.1
+ * Class Dummy Bot решение задачи 4.1
  *
  * @author Nikolay Gorbunov
  * @since 0.0.1
