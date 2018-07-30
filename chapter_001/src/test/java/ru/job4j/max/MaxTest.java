@@ -13,8 +13,8 @@ public class MaxTest {
     @Test
     public void whenFirstLessSecond() {
         Max maxim = new Max();
-        int result = maxim.max(1, 2);
-        assertThat(result, is(2));
+        int result = maxim.max(1, 2, 3);
+        assertThat(result, is(3));
     }
     @Test
     public void whenFirstLargerSecond() {
@@ -25,14 +25,14 @@ public class MaxTest {
     @Test
     public void whenFirstIsLessThanSecond() {
         Max maxim = new Max();
-        int result = maxim.max(1, -2);
+        int result = maxim.max(1, -2, 0);
         assertThat(result, is(1));
     }
 
     @Test
     public void whenFirstEqualsSecond() {
         Max maxim = new Max();
-        int result = maxim.max(-2, -2);
+        int result = maxim.max(-2, -2, -2);
         assertThat(result, is(-2));
     }
 }
