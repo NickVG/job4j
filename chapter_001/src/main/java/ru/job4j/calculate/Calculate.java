@@ -1,4 +1,8 @@
 package ru.job4j.calculate;
+import java.lang.System;
+import static java.lang.System.out;
+import ru.job4j.loop.Board;
+
 
 /**
  *Class Calculate решение задачи 1.3 урок 1
@@ -12,9 +16,17 @@ public class Calculate {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Hello world");
+//		String name = "Petr";
+//		System.out.println(String.format("Hello, %s", name));
+//		System.out.println(String.format("Hello, ", name));
+//		System.out.println(String.format("Hello, %s MT", name));
+//		System.out.println(String.format("x x%s x %sx x%s", name, name, name));
+		Board check = new Board();
+		System.out.println(check.paint(3, 3));
+
+
+
 	}
-
-
 	/**
 	 * Method echo.
 	 * @param name Your name.
