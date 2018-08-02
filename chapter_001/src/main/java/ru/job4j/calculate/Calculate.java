@@ -2,7 +2,7 @@ package ru.job4j.calculate;
 import java.lang.System;
 import static java.lang.System.out;
 import ru.job4j.loop.Board;
-
+import ru.job4j.loop.Paint;
 
 /**
  *Class Calculate решение задачи 1.3 урок 1
@@ -23,9 +23,8 @@ public class Calculate {
 //		System.out.println(String.format("x x%s x %sx x%s", name, name, name));
 		Board check = new Board();
 		System.out.println(check.paint(3, 3));
-
-
-
+		Paint pyra = new Paint();
+		System.out.println(pyra.pyramid(3));
 	}
 	/**
 	 * Method echo.
