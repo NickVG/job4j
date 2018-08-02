@@ -6,6 +6,7 @@ package ru.job4j.array;
  * @return рисунок шахматной доски
  */
 
+
 public class Square {
     public int[] calculate(int bound) {
         int[] rst = new int[bound];
@@ -13,9 +14,9 @@ public class Square {
             rst = null;
         }
         if (bound > 0) {*/
-            for (int i = 0; i < bound; i++) {
-                rst [i] = (i + 1) * (i + 1);
-            }
+        for (int i = 0; i < bound; i++) {
+            rst [i] = (i + 1) * (i + 1);
+        }
 //        }
         // заполнить массив через цикл элементами от 1 до bound возведенными в квадрат
         return rst;
