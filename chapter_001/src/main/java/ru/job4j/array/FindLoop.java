@@ -1,0 +1,21 @@
+package ru.job4j.array;
+
+/**
+ * Метод для посика индекса элеиента массива попадающего под условие поиска
+ *
+ * @return индекс элемента
+ */
+
+public class FindLoop {
+    public int indexOf(int[] data, int el) {
+        int rst = -1; // если элемента нет в массиве, то возвращаем -1.
+        for (int index : data) {
+            if (data[index] == el) {
+                rst = index;
+                break;
+            }
+        }
+        return rst;
+    }
+}
+
