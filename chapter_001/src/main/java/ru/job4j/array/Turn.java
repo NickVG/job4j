@@ -1,6 +1,5 @@
 package ru.job4j.array;
 
-import java.util.*;
 
 /**
  * Метод для разворачивания массива

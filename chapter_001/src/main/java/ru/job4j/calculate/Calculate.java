@@ -5,6 +5,7 @@ import ru.job4j.loop.Board;
 import ru.job4j.loop.Paint;
 import ru.job4j.array.FindLoop;
 import ru.job4j.array.Square;
+import ru.job4j.array.Turn;
 
 /**
  *Class Calculate решение задачи 1.3 урок 1
@@ -30,7 +31,9 @@ public class Calculate {
 		FindLoop loop = new FindLoop();
 		Square square = new Square();
 		int[] rst = square.calculate(3);
-		System.out.println(loop.indexOf(rst, 4));
+		System.out.println(rst);
+		Turn turn = new Turn();
+		System.out.println(turn.turn(rst));
 
 	}
 	/**
