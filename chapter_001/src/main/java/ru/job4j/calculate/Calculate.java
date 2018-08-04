@@ -3,6 +3,8 @@ import java.lang.System;
 import static java.lang.System.out;
 import ru.job4j.loop.Board;
 import ru.job4j.loop.Paint;
+import ru.job4j.array.FindLoop;
+import ru.job4j.array.Square;
 
 /**
  *Class Calculate решение задачи 1.3 урок 1
@@ -25,6 +27,11 @@ public class Calculate {
 		System.out.println(check.paint(3, 3));
 		Paint pyra = new Paint();
 		System.out.println(pyra.pyramid(3));
+		FindLoop loop = new FindLoop();
+		Square square = new Square();
+		int[] rst = square.calculate(3);
+		System.out.println(loop.indexOf(rst, 4));
+
 	}
 	/**
 	 * Method echo.
