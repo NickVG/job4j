@@ -1,4 +1,5 @@
 package ru.job4j.array;
+import java.util.*;
 
 /**
  * Метод для разворачивания массива
@@ -7,11 +8,18 @@ package ru.job4j.array;
  */
 public class Turn {
     public int[] turn(int[] array) {
-        int sum = 0;
-        for (int i : array) { sum += 1;
-        }
-        if (sum %2 ==0 ) {
-
+        while (array.length > 1) if (array.length % 2 == 0) {
+            for (int i = 0; i == array.length / 2; i++) {
+                int temp = array[i];
+                array[i] = array[(array.length - i)];
+                array[array.length - i] = temp;
+            }
+        } else {
+            for (int i = 0; i == array.length / 2 - 1; i++) {
+                int temp = array[i];
+                array[i] = array[(array.length - i)];
+                array[array.length - i] = temp;
+            }
         }
         return array;
     }
