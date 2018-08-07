@@ -1,11 +1,14 @@
 package ru.job4j.calculate;
 import java.lang.System;
 import static java.lang.System.out;
+
+import ru.job4j.array.ArrayDuplicate;
 import ru.job4j.loop.Board;
 import ru.job4j.loop.Paint;
 import ru.job4j.array.FindLoop;
 import ru.job4j.array.Square;
 import ru.job4j.array.Turn;
+
 
 /**
  *Class Calculate решение задачи 1.3 урок 1
@@ -31,9 +34,13 @@ public class Calculate {
 		FindLoop loop = new FindLoop();
 		Square square = new Square();
 		int[] rst = square.calculate(3);
-		System.out.println(rst);
+//		System.out.println(rst);
 		Turn turn = new Turn();
-		System.out.println(turn.turn(rst));
+//		System.out.println(turn.turn(rst));
+		String[] array = {"Привет", "Мир", "Привет", "Супер", "Мир"};//напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
+		ArrayDuplicate duplicate = new ArrayDuplicate();
+		System.out.println(duplicate.remove(array));
+
 
 	}
 	/**
