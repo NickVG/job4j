@@ -10,26 +10,28 @@ public class ArrayDuplicate {
          */
         for (int i = 0; i < array.length; i++) {
             /**
-             * Внутренний циел используется для сравнения выбранного элемента массива
+             * Внутренний цикл. Используется для сравнения выбранного элемента массива
              * с каждым последующим на предмет совпадения значений
              */
-            for (int j = i + 1; j < array.length - 1; j++) {
+            for (int j = i + 1; j < array.length; j++) {
                 /**
                  * Если найдено совпадающее значение, то дубликату присваивается значение null
                  */
-                if (array[i].equals(array[j])) {
-                    array[j] = null;
-                    nullCounter++;
+                if(array[i] != null) {
+                    if (array[i].equals(array[j])) {
+                        array[j] = null;
+                        nullCounter++;
+                    }
                 }
             }
         }
         /**
-         * В случае нахождени дуюликатов необходимосделать перестановки в массиве
+         * В случае нахождения дубликатов необходимо сделать перестановки в массиве
          * и затем вренуть массив без дубликатов
          */
         if (nullCounter > 0) {
             for (int i = 0; i < array.length; i++) {
-                if (!array[i].equals(null)) {
+                if (array[i] != null) {
                     array[temp] = array[i];
                     temp++;
                 }

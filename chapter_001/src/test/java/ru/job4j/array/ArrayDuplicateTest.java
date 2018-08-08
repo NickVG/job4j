@@ -15,25 +15,3 @@ public class ArrayDuplicateTest {
         assertThat(result, is(expect));
     }
 }
-/*
-    @Test
-    public void whenStartWithPrefixThenTrue() {
-        ArrayChar word = new ArrayChar("Hello");
-        boolean result = word.startWith("He");
-        assertThat(result, is(true));
-    }
-
-    @Test
-    public void whenNotStartWithPrefixThenFalse() {
-        ArrayChar word = new ArrayChar("Hello");
-        boolean result = word.startWith("Hi");
-        assertThat(result, is(false));
-    }
-}
-
-        BubbleSort sorter = new BubbleSort();
-        int[] input = new int[] {4, 1, 6, 2};
-        int[] result = sorter.sort(input);
-        int[] expect = new int[] {1, 2, 4, 6};
-        assertThat(result, is(expect));
-        */
