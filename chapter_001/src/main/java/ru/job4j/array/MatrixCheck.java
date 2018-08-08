@@ -15,7 +15,10 @@ public class MatrixCheck {
      */
     public boolean mono(boolean[][] data) {
         boolean result = true;
-        if (data.length > 2) {
+        /**
+         *  Проверяем выполнение условия на матрицах с чётным количеством индекосов
+         */
+        if (data.length % 2 != 0) {
             for (int i = 0; i < data.length; i++) {
                 if (((data[i][i] != data[0][0]) || (data[data.length - 1 - i][data.length - 1 - i]) != data[0][0])) {
                     result = false;
@@ -23,9 +26,16 @@ public class MatrixCheck {
                 }
             }
         }
-        if (data.length == 2) {
-            result = (data[0][0] == data[1][1]);
-            result = (data[1][0] == data[0][1]);
+        /**
+         *  Проверяем выполнение условия на матрицах с нечетным количеством индекосов
+         */
+        if (data.length % 2 == 0) {
+            for (int i = 0; i < data.length; i++) {
+                if (((data[i][i] != data[0][0]) || (data[data.length - 1 - i][data.length - 1 - i]) != data[data.length - 1][data.length - 1])) {
+                    result = false;
+                    break;
+                }
+            }
         }
         return result;
     }
