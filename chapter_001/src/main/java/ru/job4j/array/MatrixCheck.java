@@ -10,15 +10,11 @@ package ru.job4j.array;
 public class MatrixCheck {
     /**
      * Метод для проверки диагональных значений массива на одинаковые значения типа boolean
-     *
      * @param data - массив, который требуется проверить.
+     * @return удовлетворяется ли условие одинковости массивов или нет
      */
     public boolean mono(boolean[][] data) {
         boolean result = true;
-        /**
-         *  Проверяем выполнение условия на матрицах
-         *
-         */
             for (int i = 0; i < data.length; i++) {
                 if (((data[i][i] != data[0][0]) || (data[data.length - 1 - i][i]) != data[0][data.length - 1])) {
                     result = false;

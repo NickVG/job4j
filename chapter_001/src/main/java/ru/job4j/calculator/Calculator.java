@@ -1,5 +1,4 @@
 package ru.job4j.calculator;
-
 /**
  * Class Calculator решение задачи 3.1 урок 1
  *
@@ -7,25 +6,17 @@ package ru.job4j.calculator;
  * @since 0.0.1
  */
 public class Calculator {
-
-    /**
-     *
-     */
     private double result;
-
     /**
      * Метод сложения двух чисел для модели
      * Метод сложения двух чисел для модели
      * простейшего калькулятора
-     *
      * @param first  - первое введённое число
      * @param second - второе введённое число
      */
     public void add(double first, double second) {
         this.result = first + second;
     }
-//div
-
     /**
      * Метод вычитания двух чисел для модели
      * простейшего калькулятора
@@ -36,7 +27,6 @@ public class Calculator {
     public void subtract(double first, double second) {
         this.result = first - second;
     }
-
     /**
      * Метод деления одного число на другое для модели
      * простейшего калькулятора
@@ -47,7 +37,6 @@ public class Calculator {
     public void div(double first, double second) {
         this.result = first / second;
     }
-
     /**
      * Метод умножения одного число на другое для модели
      * простейшего калькулятора
@@ -58,7 +47,6 @@ public class Calculator {
     public void multiple(double first, double second) {
         this.result = first * second;
     }
-
     /**
      * Method getResult.
      *

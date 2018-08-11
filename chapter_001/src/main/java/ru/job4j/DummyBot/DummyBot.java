@@ -1,13 +1,10 @@
 package ru.job4j.DummyBot;
-
-
 /**
  * Class Dummy Bot решение задачи 4.1
  *
  * @author Nikolay Gorbunov
  * @since 0.0.1
  */
-
 public class DummyBot {
     /**
      * Отвечает на вопросы.

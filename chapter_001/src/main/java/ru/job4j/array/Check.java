@@ -5,7 +5,6 @@ package ru.job4j.array;
  *
  * @return массив с перевёрнутой последовательностью элементов
  */
-
 public class Check {
     public boolean mono(boolean[] data) {
         boolean result = true;

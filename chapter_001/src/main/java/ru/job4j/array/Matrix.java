@@ -7,6 +7,12 @@ package ru.job4j.array;
  */
 
 public class Matrix {
+    /**
+     * Метод для посика индекса элеиента массива попадающего под условие поиска
+     * @param size размер массива который требуется сформировать
+     * @return индекс элемента
+     * если элемента нет в массиве, то возвращаем -1.
+     */
     public int[][] multiple(int size) {
         int[][] table = new int[size][size];
         for (int i = 1; i <= size; i++) {

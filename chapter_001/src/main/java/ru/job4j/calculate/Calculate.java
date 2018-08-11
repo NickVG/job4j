@@ -11,7 +11,7 @@ import ru.job4j.array.Turn;
 
 
 /**
- *Class Calculate решение задачи 1.3 урок 1
+ *Class Calculate тестовый класс для отработки
  *@author nikolay gorbunov
  *@since 0.0.1
  */

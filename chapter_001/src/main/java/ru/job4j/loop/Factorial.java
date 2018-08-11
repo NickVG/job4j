@@ -5,11 +5,9 @@ package ru.job4j.loop;
  * @version $Id$
  * @since 0.1
  */
-
 public class Factorial {
     /**
      * Метод для вычисления Факториала
-     *
      * @param n  - число для которго вычисляется факториал
      * @return Факториал числа n
      */

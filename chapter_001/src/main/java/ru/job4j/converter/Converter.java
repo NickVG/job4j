@@ -7,14 +7,12 @@ package ru.job4j.converter;
  * @since 0.0.1
  */
 public class Converter {
-
     /**
      * USDRUB - курс доллара по отношению к рублю
      * EURRUB - курс евро по отношению к рублю
      */
     private static final int USDRUB = 60;
     private static final int EURRUB = 70;
-
     /**
      * Конвертируем рубли в евро.
      *
@@ -24,7 +22,6 @@ public class Converter {
     public int rubleToEuro(int value) {
         return value / EURRUB;
     }
-
     /**
      * Конвертируем рубли в доллары.
      *
@@ -34,7 +31,6 @@ public class Converter {
     public int rubleToDollar(int value) {
         return value / USDRUB;
     }
-
     /**
      * Конвертируем евро в рубли.
      *
@@ -44,7 +40,6 @@ public class Converter {
     public int euroToRuble(int value) {
         return value * EURRUB;
     }
-
     /**
      * Конвертируем доллары в рубли.
      *

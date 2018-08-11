@@ -2,9 +2,7 @@ package ru.job4j.array;
 
 /** Class BubbleSort
  * @author nikolay gorbunov
- *
- * @param
- *  @return отсортированный
+ * Релизация пузрькового метода сортировки массива
  */
 
 public class BubbleSort {

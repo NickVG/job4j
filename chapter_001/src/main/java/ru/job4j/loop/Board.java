@@ -5,9 +5,7 @@ package ru.job4j.loop;
  * @version $Id$
  * @since 0.1
  */
-
 public class Board {
-
     /**
      * Метод для рисования шахматной доски в псевдографике
      *
@@ -15,7 +13,6 @@ public class Board {
      * @param height - высота доски
      * @return рисунок шахматной доски
      */
-
     public String paint(int width, int height) {
         StringBuilder screen = new StringBuilder();
         String ln = System.lineSeparator();
