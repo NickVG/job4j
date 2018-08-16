@@ -21,7 +21,6 @@ public class ArrayDuplicate {
         int temp = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
-
                 if(array[i] != null) {
                     if (array[i].equals(array[j])) {
                         array[j] = null;
@@ -29,14 +28,17 @@ public class ArrayDuplicate {
                     }
                 }
             }
+            if (array[i] != null) {
+                array[temp] = array[i];
+                temp++;
         }
-        if (counter > 0) {
+/*        if (counter > 0) {
             for (int i = 0; i < array.length; i++) {
                 if (array[i] != null) {
                     array[temp] = array[i];
                     temp++;
                 }
-            }
+            }*/
         }
         return Arrays.copyOf(array, array.length - counter);
     }
