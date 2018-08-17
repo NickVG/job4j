@@ -31,14 +31,7 @@ public class ArrayDuplicate {
             if (array[i] != null) {
                 array[temp] = array[i];
                 temp++;
-        }
-/*        if (counter > 0) {
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] != null) {
-                    array[temp] = array[i];
-                    temp++;
-                }
-            }*/
+            }
         }
         return Arrays.copyOf(array, array.length - counter);
     }
