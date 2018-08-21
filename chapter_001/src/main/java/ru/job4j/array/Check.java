@@ -3,7 +3,7 @@ package ru.job4j.array;
 /**
  * Метод для Проверкина единоообразие массива массива
  *
- * @return массив с перевёрнутой последовательностью элементов
+ * @return единообразен массив или нет
  */
 public class Check {
     public boolean mono(boolean[] data) {
