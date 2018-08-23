@@ -1,12 +1,21 @@
 package ru.job4j.test;
 import java.util.Arrays;
 
-
+/**
+ * Class ArrayJoin
+ * @author nikolay gorbunov
+ * Реализация объединения двух массивов, которые предварительно отсортрованы по возрастанию
+ */
 public class ArrayJoin {
-//    private static final int[] A = {0, 3};
-//    private static final int[] B = {0, 1, 5};
-//    private static int[] C = new int[A.length + B.length];
-
+    /**
+     * метод реализующий объединение массивов
+     * @param A первый массив
+     * @param B второй массив
+     * @return массив состоящий из элементов A и B отсортрованных по возрастанию
+     * i = индексы первого массива
+     * j = индексы второго массива
+     * temp = индексы результирующего массива
+     */
     public int[] unite(int[] A, int[] B) {
         int i = 0, j = 0, temp = 0;
         int[] C = new int[A.length + B.length];
@@ -20,7 +29,30 @@ public class ArrayJoin {
             }
             temp++;
         }
+        if ( i == A.length && j !=B.length) {
+            uniteFinish(temp, j, C, B);
+        }
+        if (i != A.length && j == B.length){
+            uniteFinish(temp, i, C, B);
+        }
         return C;
     }
-}
 
+    /**
+     * Метод для финализации процесса объединения массивов
+     * @param arrayIndex текущий индекс массива, который должен получиться по окончании работы класса
+     * @param sourceArrayIndex текущий индекс массива который остаётся после сортировки двух массивов
+     * @param array массив, который должен получиться по окончании работы класса
+     * @param sourceArray массив, который остётся после работы класса
+     * @return финальный массив
+     */
+
+    public int [] uniteFinish( int arrayIndex, int sourceArrayIndex, int array[], int sourceArray[]) {
+        while (sourceArrayIndex < sourceArray.length) {
+            array[arrayIndex] = sourceArray[sourceArrayIndex];
+            arrayIndex++;
+            sourceArrayIndex++;
+        }
+        return array;
+    }
+}
