@@ -26,4 +26,14 @@ public class ArrayJoinTest {
         int[] expect = new int[]{0, 0, 1, 1, 2, 3, 3, 3, 5, 6, 8};
         assertThat(result, is(expect));
     }
+
+    @Test
+    public void whenA0123568andB013() {
+        ArrayJoin uniter = new ArrayJoin();
+        int[] input1 = new int[]{0, 1, 2, 3, 3, 5, 6, 8};
+        int[] input2 = new int[]{0, 1, 3};
+        int[] result = uniter.unite(input1, input2);
+        int[] expect = new int[]{0, 0, 1, 1, 2, 3, 3, 3, 5, 6, 8};
+        assertThat(result, is(expect));
+    }
 }
