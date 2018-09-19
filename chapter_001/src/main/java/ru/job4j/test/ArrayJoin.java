@@ -1,26 +1,40 @@
 package ru.job4j.test;
-import java.util.Arrays;
 
-
+/**
+ * Class ArrayJoin выполняет объёдинение двух массивов.
+ *
+ * @author nikolay gorbunov
+ * Реализация объединения двух массивов,
+ * которые предварительно отсортрованы по возрастанию
+ */
 public class ArrayJoin {
-//    private static final int[] A = {0, 3};
-//    private static final int[] B = {0, 1, 5};
-//    private static int[] C = new int[A.length + B.length];
-
-    public int[] unite(int[] A, int[] B) {
-        int i = 0, j = 0, temp = 0;
-        int[] C = new int[A.length + B.length];
-        while (i < A.length && j < B.length) {
-            if (A[i] > B[j]) {
-                C[temp] = B[j];
-                j++;
+    /**
+     * метод реализующий объединение массивов.
+     *
+     * @param arrayA первый массив
+     * @param arrayB второй массив
+     * @return массив состоящий из элементов A и B отсортрованных по возрастанию
+     * i = индексы первого массива
+     * j = индексы второго массива
+     * k = индексы результирующего массива
+     */
+    public final int[] unite(final int[] arrayA, final int[] arrayB) {
+        int i = 0, j = 0, k = 0;
+        int[] arrayC = new int[arrayA.length + arrayB.length];
+        while (i < arrayA.length && j < arrayB.length) {
+            if (arrayA[i] > arrayB[j]) {
+                arrayC[k] = arrayB[j++];
             } else {
-                C[temp] = A[i];
-                i++;
+                arrayC[k] = arrayA[i++];
             }
-            temp++;
+            k++;
         }
-        return C;
+        while (i < arrayA.length) {
+            arrayC[k++] = arrayA[i++];
+        }
+        while (j < arrayB.length) {
+            arrayC[k++] = arrayB[j++];
+        }
+        return arrayC;
     }
 }
-

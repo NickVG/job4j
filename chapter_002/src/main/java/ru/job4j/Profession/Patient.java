@@ -1,4 +1,8 @@
 package ru.job4j.Profession;
 
-public class Patient {
+/** Class Patient
+ * @author nikolay gorbunov
+ */
+
+public class Patient extends Profession {
 }
