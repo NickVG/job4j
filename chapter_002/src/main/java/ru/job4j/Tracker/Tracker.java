@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 import java.util.Random;
+import java.lang.*;
+import java.util.Arrays;
+
 import java.util.*;
 
 public class Tracker {
@@ -21,6 +24,10 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 
+    /**
+     * Метод для подсчёта заведённых заявок
+     * @return число заведённых заявок
+     */
     int idQuantity () {
         int quantity = 0;
         for (int i = 0; i < 100; i++) {
@@ -45,13 +52,24 @@ public class Tracker {
      * @param item  сама новая заявка
      */
     public void replace(String id, Item item){
-        findById(id) = item;
+        for (int i = 0; i < 100; i++) {
+            if (items[i].getId().equals(id)) {
+                items[i] = item;
+                break;
+            }
+        }
     }
+
     /**
      * Метод для удаления заявок
      * @param id
      */
-    public void delete(String id){
+    public void delete(String id) {
+        for (int i = 0; i < 100; i++) {
+            if (items[i].getId().equals(id)) {
+              System.arraycopy(items, i++, items, i, 99 - i);
+            }
+        }
     }
     /**
      * Метод для получения списка всех заявок
@@ -62,7 +80,8 @@ public class Tracker {
         int j = 0;
         for (int i = 0; i < 100; i++) {
             if (this.items[i] != null) {
-                result[j++] = this.items[i];
+                result[j] = this.items[i];
+                j++;
             }
         }
         return result;
@@ -73,23 +92,30 @@ public class Tracker {
      * @return
      */
     public Item[] findByName(String key) {
-            Item result [] = null;
-            for (Item item : items) {
-                if (item !=null && item.getId().equals(key)) {
-                }
+        int j = 0;
+        for (Item item : items) {
+            if (item.getId().equals(key)) {
+                j++;
             }
-            return result;
+        }
+        Item[] result = new Item[j];
+        j = 0;
+        for (int i = 0; i < 100; i++) {
+            if (items[i].getId().equals(key)) {
+                result[j++] = items[i];
+            }
+        }
+        return result;
     }
     /**
      * Метод для получения заявки по id
      * @param id ID заявки
      * @return result заявка
      */
-    public Item findById(String id)
-    {
+    public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
-            if (item !=null && item.getId().equals(id)) {
+            if (item.getId().equals(id)) {
                 result = item;
                 break;
             }
@@ -97,6 +123,11 @@ public class Tracker {
         return result;
     }
 
-
+    public static void main (String[] args) {
+        Tracker tracker = new Tracker();
+        Item item = new Item("test1","testDescription",123L);
+        System.out.println(item.getCreate());
+        System.out.println(tracker.idQuantity());
+//        System.out.println(tracker.findAll()[0]);
+    }
 }
-
