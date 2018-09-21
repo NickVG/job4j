@@ -126,8 +126,11 @@ public class Tracker {
     public static void main (String[] args) {
         Tracker tracker = new Tracker();
         Item item = new Item("test1","testDescription",123L);
-        System.out.println(item.getCreate());
+        tracker.add(item);
+
+//        System.out.println(item.getCreate());
         System.out.println(tracker.idQuantity());
+        System.out.println(item == null);
 //        System.out.println(tracker.findAll()[0]);
     }
 }
