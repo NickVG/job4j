@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.lang.*;
 
 /**
  * Константа меню для добавления новой заявки.
@@ -35,7 +36,11 @@ package ru.job4j.tracker;
 public class StartUI {
     public static void main(String[] args){
         Tracker tracker = new Tracker();
-        boolean exit = false;
+        tracker.add(new Task("first Task", "first Description"));
+        for (Item item: tracker.findAll()) {
+            System.out.println(item.getName());
+        }
+//        boolean exit = false;
 /*        while(exit) {
             if (...) {
             } else if (...) {

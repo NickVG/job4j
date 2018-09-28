@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+
 import java.lang.*;
 import java.util.*;
 
@@ -12,15 +13,19 @@ public class Tracker {
      */
     private int position = 0;
     private static final Random RN = new Random();
+
     /**
      * метод генерирующий ID заявки
+     *
      * @return ID заявки
      */
     String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
+
     /**
      * Метод для подсчёта заведённых заявок
+     *
      * @return число заведённых заявок
      */
     public int idQuantity() {
@@ -32,22 +37,25 @@ public class Tracker {
         }
         return quantity;
     }
+
     /**
      * Метод реализующий добавление заявки в хранилище
+     *
      * @param item новая заявка
+     * @return item
      */
-    public Item add(Item item){
-        this.position++;
+    public void add(Item item) {
         item.setId(this.generateId());
-        System.out.println(position);
-        return this.items[(position - 1)];
+        this.items[this.position++] = item;
     }
+
     /**
      * Метод для редактирования заявок
-     * @param id    ID заявки
-     * @param item  сама новая заявка
+     *
+     * @param id   ID заявки
+     * @param item сама новая заявка
      */
-    public void replace(String id, Item item){
+    public void replace(String id, Item item) {
         for (int i = 0; i < 100; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
@@ -55,34 +63,40 @@ public class Tracker {
             }
         }
     }
+
     /**
      * Метод для удаления заявок
+     *
      * @param id
      */
     public void delete(String id) {
         for (int i = 0; i < 100; i++) {
             if (items[i].getId().equals(id)) {
-              System.arraycopy(items, i++, items, i, 99 - i);
+                System.arraycopy(items, i++, items, i, 99 - i);
             }
         }
     }
+
     /**
      * Метод для получения списка всех заявок
+     *
      * @return
      */
-    public Item[] findAll(){
-        Item[] result = new Item[idQuantity()];
+    public Item[] findAll() {
+        Item[] result = new Item[this.position];
         int j = 0;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < position; i++) {
             if (this.items[i] != null) {
-                result[j] = this.items[i];
-                j++;
+                result[j++] = this.items[i];
+//                j++;
             }
         }
         return result;
     }
+
     /**
      * Метод для получения списка по имени
+     *
      * @param key
      * @return
      */
@@ -102,8 +116,10 @@ public class Tracker {
         }
         return result;
     }
+
     /**
      * Метод для получения заявки по id
+     *
      * @param id ID заявки
      * @return result заявка
      */
@@ -118,13 +134,13 @@ public class Tracker {
         return result;
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1","testDescription",123L);
+        Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);
 
 //        System.out.println(item.getCreate());
-        System.out.println(tracker[0]);
+        System.out.println(Arrays.toString(tracker.findAll()));
         System.out.println(tracker.idQuantity());
         System.out.println(item == null);
 //        System.out.println(tracker.findAll()[1]);
