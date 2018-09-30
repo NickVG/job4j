@@ -30,7 +30,7 @@ public class Tracker {
      */
     public int idQuantity() {
         int quantity = 0;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < this.position; i++) {
             if (items[i] != null) {
                 quantity++;
             }
@@ -56,7 +56,7 @@ public class Tracker {
      * @param item сама новая заявка
      */
     public void replace(String id, Item item) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < this.position; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
                 break;
@@ -70,9 +70,11 @@ public class Tracker {
      * @param id
      */
     public void delete(String id) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < this.position; i++) {
             if (items[i].getId().equals(id)) {
-                System.arraycopy(items, i++, items, i, 99 - i);
+                System.arraycopy(items, i + 1, items, i, this.position - i - 1);
+                position--;
+                items[this.position] = null;
             }
         }
     }
@@ -83,15 +85,7 @@ public class Tracker {
      * @return
      */
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        int j = 0;
-        for (int i = 0; i < position; i++) {
-            if (this.items[i] != null) {
-                result[j++] = this.items[i];
-//                j++;
-            }
-        }
-        return result;
+        return  Arrays.copyOf(this.items, position);
     }
 
     /**
@@ -109,9 +103,10 @@ public class Tracker {
         }
         Item[] result = new Item[j];
         j = 0;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < this.position; i++) {
             if (items[i].getId().equals(key)) {
-                result[j++] = items[i];
+                System.arraycopy(items, i, result, j, 1);
+                j++;
             }
         }
         return result;
@@ -139,10 +134,8 @@ public class Tracker {
         Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);
 
-//        System.out.println(item.getCreate());
         System.out.println(Arrays.toString(tracker.findAll()));
         System.out.println(tracker.idQuantity());
         System.out.println(item == null);
-//        System.out.println(tracker.findAll()[1]);
     }
 }
