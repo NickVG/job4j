@@ -32,4 +32,25 @@ public class TrackerTest {
         // Проверяем, что заявка с таким id имеет новые имя test2.
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
+
+    //Давайте рассмотрим пример реализации теста для замены заявки.
+
+    @Test
+    public void whenDeleteTask() {
+        Tracker tracker = new Tracker();
+        Item oneTask = new Item("test1", "testDescription", 123L);
+        // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
+        tracker.add(oneTask);
+        // Создаем новую заявку.
+        Item twoTask = new Item("test2", "testDescription2", 1234L);
+        tracker.add(twoTask);
+        Item threeTask = new Item("test3", "testDescription3", 12345L);
+        tracker.add(threeTask);
+        // Проставляем старый id из previous, который был сгенерирован выше.
+        tracker.delete(oneTask.getId());
+        // Проверяем, что заявка с таким id имеет новые имя test2.
+        assertThat(tracker.idQuantity(), is(2));
+    }
+
+
 }
