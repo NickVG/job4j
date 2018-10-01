@@ -1,4 +1,4 @@
-package ru.job4j.Profession;
+package ru.job4j.profession;
 
 /** Class Doctor
  * @author nikolay gorbunov

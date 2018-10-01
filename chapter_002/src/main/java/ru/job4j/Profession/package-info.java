@@ -1,1 +1,1 @@
-package ru.job4j.Profession;
+package ru.job4j.profession;
