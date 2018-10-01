@@ -5,7 +5,19 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * Tracker Test.
+ *
+ * @author Nikolay Gorbunov (mailto:krot19831983@mail.ru)
+ * @version $Id$
+ * @since 0.1
+ */
+
 public class TrackerTest {
+
+    /**Тест для проверки работоспсобности метода по созданию заявок.
+     *
+     */
 
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
@@ -14,20 +26,22 @@ public class TrackerTest {
         tracker.add(item);
         assertThat(tracker.findAll()[0], is(item));
     }
-
-
+    /**Тест для проверки работоспсобности замены заявки.
+     *
+     */
     @Test
     public void whenReplaceNameThenReturnNewName() {
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription", 123L);
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2", 1234L);
-        next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
 
-    //пример реализации теста для удаления заявки.
+    /**Тест для проверки работоспсобности удаления заявки.
+     *
+     */
 
     @Test
     public void whenDeleteTask() {
@@ -44,6 +58,10 @@ public class TrackerTest {
         assertThat(tracker.findAll(), is(result));
     }
 
+    /**Тест для проверки Посика заявок по имени.
+     *
+     */
+
     @Test
     public void whenFindByNameTask() {
         Tracker tracker = new Tracker();
@@ -58,9 +76,12 @@ public class TrackerTest {
         Item[] result = {threeTask, fourTask};
         assertThat(tracker.findByName("test3"), is(result));
 }
+    /**Тест для проверки работоспсобности поиска заявок по имени.
+     *
+     */
 
     @Test
-    public void whenfindAllTaskAndTasksHaveTheSameName() {
+    public void whenFindAllTaskAndTasksHaveTheSameName() {
         Tracker tracker = new Tracker();
         Item oneTask = new Item("test1", "testDescription", 123L);
         tracker.add(oneTask);
