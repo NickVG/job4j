@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import java.lang.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Tracker {
@@ -84,7 +83,7 @@ public class Tracker {
     /**
      * Метод для получения списка всех заявок
      *
-     * @return
+     * @return список всех заявок
      */
     public Item[] findAll() {
         return  Arrays.copyOf(this.items, position);
@@ -93,8 +92,8 @@ public class Tracker {
     /**
      * Метод для получения списка по имени
      *
-     * @param key
-     * @return
+     * @param key Имя завяки
+     * @return список заявок в котором совпадает имя
      */
     public Item[] findByName(String key) {
         int j = 0;
@@ -105,13 +104,11 @@ public class Tracker {
         }
         Item[] result = new Item[j];
         int a  = 0;
-        for (int i = 0; i < j; i++) {
+        for (int i = 0; i < this.position; i++) {
             if (items[i].getName().equals(key)) {
                 result[a++] = items[i];
             }
         }
-//        System.out.println(result[0].getName());
-//        System.out.println(result[1].getName());
         return result;
     }
 
@@ -130,33 +127,5 @@ public class Tracker {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        Tracker tracker = new Tracker();
-//        Item item = new Item("test1", "testDescription", 123L);
-//        tracker.add(item);
-
-        Item oneTask = new Item("test1", "testDescription", 123L);
-        // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
-        tracker.add(oneTask);
-        // Создаем новую заявку.
-        Item twoTask = new Item("test2", "testDescription2", 1234L);
-        tracker.add(twoTask);
-        Item threeTask = new Item("test3", "testDescription3", 12345L);
-        tracker.add(threeTask);
-        Item fourTask = new Item("test3", "testDescription3312", 123451L);
-        tracker.add(threeTask);
-        // Проставляем старый id из previous, который был сгенерирован выше.
-        Item[] result = {threeTask, fourTask};
-
-
-        System.out.println(Arrays.toString(tracker.findAll()));
-        System.out.println(tracker.idQuantity());
-        System.out.println(threeTask);
-        System.out.println(fourTask);
-        System.out.println(Arrays.toString(result));
-
-
     }
 }
