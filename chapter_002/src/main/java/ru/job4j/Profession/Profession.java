@@ -6,8 +6,8 @@ package ru.job4j.profession;
  */
 
 public class Profession {
-    private String Name, Profession;
-    public String getName(){
-        return this.Name;
+    private String name, profession;
+    public String getName() {
+        return this.name;
     }
 }

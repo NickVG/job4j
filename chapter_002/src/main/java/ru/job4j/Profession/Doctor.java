@@ -4,6 +4,6 @@ package ru.job4j.profession;
  * @author nikolay gorbunov
  */
 public class Doctor extends Profession {
-    public void heal (Patient patient) {
+    public void heal(Patient patient) {
     }
 }
