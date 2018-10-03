@@ -3,6 +3,12 @@ package ru.job4j.tracker;
 import java.lang.*;
 import java.util.*;
 
+/** Class Tracker
+ * Реализаци якласса Tracker
+ * @author nikolay gorbunov
+ * @version $Id$
+ * @since 0.1
+ */
 public class Tracker {
     /**
      * Массив для хранения заявок.
@@ -19,7 +25,7 @@ public class Tracker {
      *
      * @return ID заявки
      */
-    String generateId() {
+    private String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 
@@ -75,7 +81,6 @@ public class Tracker {
             if (items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, this.position - i - 1);
                 position--;
-                items[this.position] = null;
                 break;
             }
         }
@@ -83,7 +88,6 @@ public class Tracker {
 
     /**
      * Метод для получения списка всех заявок
-     *
      * @return список всех заявок
      */
     public Item[] findAll() {
@@ -97,20 +101,14 @@ public class Tracker {
      * @return список заявок в котором совпадает имя
      */
     public Item[] findByName(String key) {
-        int j = 0;
-        for (int i = 0; i < this.position; i++) {
-            if (items[i].getName().equals(key)) {
-                j++;
-            }
-        }
-        Item[] result = new Item[j];
-        int a  = 0;
+        Item[] result = new Item[items.length];
+        int a = 0;
         for (int i = 0; i < this.position; i++) {
             if (items[i].getName().equals(key)) {
                 result[a++] = items[i];
             }
         }
-        return result;
+        return Arrays.copyOf(result, a);
     }
 
     /**
