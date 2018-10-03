@@ -35,9 +35,9 @@ public class StartUI {
      * Класс StartUI точка входа в программу
      */
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ConsoleInput input = new ConsoleInput();
-        String name = input.ask ("Please, enter the task's name: ");
+        String name = input.ask("Please, enter the task's name: ");
         Tracker tracker = new Tracker();
         tracker.add(new Task("first Task", "first Description"));
         for (Item item: tracker.findAll()) {
