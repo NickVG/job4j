@@ -1,5 +1,5 @@
 package ru.job4j.tracker;
-import java.lang.*;
+import java.lang.*;dd
 
 public class StartUI {
     /**
@@ -39,7 +39,7 @@ public class StartUI {
         ConsoleInput input = new ConsoleInput();
         String name = input.ask("Please, enter the task's name: ");
         Tracker tracker = new Tracker();
-        tracker.add(new Task("first Task", "first Description"));
+        tracker.add(new Task(name, "first Description"));
         for (Item item: tracker.findAll()) {
             System.out.println(item.getName());
         }
