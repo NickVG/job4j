@@ -22,8 +22,7 @@ public class Tracker {
 
     /**
      * метод генерирующий ID заявки
-     *
-     * @return ID заявки
+     *@return ID заявки
      */
     private String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
@@ -96,7 +95,6 @@ public class Tracker {
 
     /**
      * Метод для получения списка по имени
-     *
      * @param key Имя завяки
      * @return список заявок в котором совпадает имя
      */
@@ -113,7 +111,6 @@ public class Tracker {
 
     /**
      * Метод для получения заявки по id
-     *
      * @param id ID заявки
      * @return result заявка
      */
