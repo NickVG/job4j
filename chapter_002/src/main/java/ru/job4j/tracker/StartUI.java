@@ -147,7 +147,7 @@ public class StartUI {
         System.out.println("Для вывода списка всех заявок введите " + SHOW);
         System.out.println("Для редактирования заявки введите " + EDIT);
         System.out.println("Для удаления заявки " + DELETE);
-        System.out.println("Для поиска заявки по ID введите" + FINDBYID);
+        System.out.println("Для поиска заявки по ID введите " + FINDBYID);
         System.out.println("Для поиска заявки по имени введите " + FINDBYNAME);
         System.out.println("Для выхода из программы введите " + EXIT);
         // добавить остальные пункты меню.
