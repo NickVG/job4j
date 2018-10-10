@@ -159,7 +159,8 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        //new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new StubInput(new String[] {"0", "name", "desc", "6"}), new Tracker()).init();
     }
 
 }
