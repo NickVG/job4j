@@ -115,7 +115,7 @@ public class StartUITest {
      * создаём StubInput с последовательностью действий(производим удаление заявки)
      * создаём StartUI и вызываем метод init()
      * проверяем, что поиск работает верно.
-     */
+
     @Test
     public void whenAskToShowTaskByID() {
         // создаём Tracker
@@ -128,4 +128,5 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(id), is(id));
     }
+     */
 }
