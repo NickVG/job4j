@@ -49,9 +49,10 @@ public class Tracker {
      * @param item новая заявка
      * @return item
      */
-    public void add(Item item) {
+    public Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
+        return item;
     }
 
     /**

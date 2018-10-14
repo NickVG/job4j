@@ -88,6 +88,7 @@ public class StartUI {
         Item item = new Item(name, desc);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        System.out.println();
     }
 
     /**
@@ -96,6 +97,7 @@ public class StartUI {
     private void showAllItems() {
         System.out.println("------------ Спиcок всех имеющихся заявок:  --------------");
         System.out.println(Arrays.toString(tracker.findAll()));
+        System.out.println();
     }
 
     /**
@@ -111,6 +113,7 @@ public class StartUI {
         System.out.println("------------ Новое имя заявки: " + newItem.getName() + "-----------");
         System.out.println("------------ Новое описание заявки: " + newItem.getDescription() + "-----------");
         System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
+        System.out.println();
     }
 
     /**
@@ -120,6 +123,7 @@ public class StartUI {
         System.out.println("------------ Поиск заявки по ID--------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется найти : ");
         System.out.println("------------ ID требуемой заявки: " + tracker.findById(taskId).getId() + "-----------");
+        System.out.println();
     }
 
     /**
@@ -129,6 +133,7 @@ public class StartUI {
         System.out.println("------------ Поиск заявки по имени--------------");
         String taskName = this.input.ask("Введите имя заявки котрую требуется найти : ");
         System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
+        System.out.println();
     }
 
     /**
@@ -139,6 +144,7 @@ public class StartUI {
         String taskId = this.input.ask("Введите id заявки котрую требуется удалить : ");
         tracker.delete(taskId);
         System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
+        System.out.println();
     }
 
     private void showMenu() {
@@ -150,7 +156,6 @@ public class StartUI {
         System.out.println("Для поиска заявки по ID введите " + FINDBYID);
         System.out.println("Для поиска заявки по имени введите " + FINDBYNAME);
         System.out.println("Для выхода из программы введите " + EXIT);
-        // добавить остальные пункты меню.
     }
 
     /**
@@ -159,8 +164,8 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        //new StartUI(new ConsoleInput(), new Tracker()).init();
-        new StartUI(new StubInput(new String[] {"0", "name", "desc", "6"}), new Tracker()).init();
+        new StartUI(new ConsoleInput(), new Tracker()).init();
+//        new StartUI(new StubInput(new String[] {"0", "name", "desc", "6"}), new Tracker()).init();
     }
 
 }
