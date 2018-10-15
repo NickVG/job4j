@@ -1,8 +1,6 @@
 package ru.job4j.tracker;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -66,6 +64,7 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll(), is(test));
     }
+
     /**
      * Метод проверяющий поиск заявик по имени
      * создаём Tracker
@@ -77,9 +76,7 @@ public class StartUITest {
      */
     @Test
     public void whenShowAllTasksByName() {
-        //
         Tracker tracker = new Tracker();
-        //
         Item item1 = tracker.add(new Item("test name1", "desc1"));
         Item item2 = tracker.add(new Item("test name2", "desc2"));
         Item item3 = tracker.add(new Item("test name2", "desc3"));
@@ -107,26 +104,4 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat((tracker.findAll()), is((new Item[]{test[0]})));
     }
-
-    /**
-     * Метод поиск заявки по ID
-     * cоздаём Tracker
-     * добавляем две заявки
-     * создаём StubInput с последовательностью действий(производим удаление заявки)
-     * создаём StartUI и вызываем метод init()
-     * проверяем, что поиск работает верно.
-
-    @Test
-    public void whenAskToShowTaskByID() {
-        // создаём Tracker
-        Tracker tracker = new Tracker();
-        //Напрямую добавляем заявку
-        Item item1 = tracker.add(new Item("test name1", "desc1"));
-        Item item2 = tracker.add(new Item("test name2", "desc2"));
-        String id =  item2.getId();
-        Input input = new StubInput(new String[]{"4", id, "6"});
-        new StartUI(input, tracker).init();
-        assertThat(tracker.findById(id), is(id));
-    }
-     */
 }
