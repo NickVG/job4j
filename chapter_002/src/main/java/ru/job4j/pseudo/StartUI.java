@@ -11,11 +11,7 @@ public class StartUI {
     public static void main(String[] args) {
         Shape square = new Square();
         Shape triangle = new Triangle();
-        new StartUI(square);
-        new StartUI(triangle);
-    }
-
-    private StartUI(Shape shape) {
-        new Paint().draw(shape);
+        new Paint().draw(square);
+        new Paint().draw(triangle);
     }
 }

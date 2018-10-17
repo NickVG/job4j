@@ -12,30 +12,64 @@ import static org.junit.Assert.assertThat;
  * @since 0.1
  */
 public class PaintTest {
+
+    /**
+     * Тест проверяющий отрисковку квадрата
+     * получаем ссылку на стандартный вывод в консоль.
+     * Создаем буфур для хранения вывода.
+     * Заменяем стандартный вывод на вывод в пямять для тестирования.
+     * выполняем действия пишушиее в консоль.
+     * проверяем результат вычисления
+     * возвращаем обратно стандартный вывод в консоль.
+     */
     @Test
     public void whenDrawSquare() {
-        // получаем ссылку на стандартный вывод в консоль.
         PrintStream stdout = System.out;
-        // Создаем буфур для хранения вывода.
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        //Заменяем стандартный вывод на вывод в пямять для тестирования.
         System.setOut(new PrintStream(out));
-        // выполняем действия пишушиее в консоль.
         new Paint().draw(new Square());
-        // проверяем результат вычисления
         assertThat(
                 new String(out.toByteArray()),
                 is(
                         new StringBuilder()
+                                .append("++++").append(System.lineSeparator())
+                                .append("++++").append(System.lineSeparator())
+                                .append("++++").append(System.lineSeparator())
                                 .append("++++")
-                                .append("++++")
-                                .append("++++")
-                                .append("++++")
-                                .append(System.lineSeparator())
+                                .append(System.lineSeparator()).append(System.lineSeparator())
                                 .toString()
                 )
         );
-        // возвращаем обратно стандартный вывод в консоль.
+        System.setOut(stdout);
+    }
+
+    /**
+     * Тест проверяющий отрисковку треуглника
+     * получаем ссылку на стандартный вывод в консоль.
+     * Создаем буфур для хранения вывода.
+     * Заменяем стандартный вывод на вывод в пямять для тестирования.
+     * выполняем действия пишушиее в консоль.
+     * проверяем результат вычисления
+     * возвращаем обратно стандартный вывод в консоль.
+     */
+    @Test
+    public void whenDrawTriangle() {
+        PrintStream stdout = System.out;
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        new Paint().draw(new Triangle());
+        assertThat(
+                new String(out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("+").append(System.lineSeparator())
+                                .append("+++").append(System.lineSeparator())
+                                .append("+++++").append(System.lineSeparator())
+                                .append("+++++++")
+                                .append(System.lineSeparator()).append(System.lineSeparator())
+                                .toString()
+                )
+        );
         System.setOut(stdout);
     }
 }

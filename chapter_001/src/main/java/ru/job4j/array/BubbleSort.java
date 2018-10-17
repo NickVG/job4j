@@ -4,8 +4,8 @@ package ru.job4j.array;
  * @author nikolay gorbunov
  * Релизация пузрькового метода сортировки массива
  */
-
 public class BubbleSort {
+
     /**
      *Метод для сортировки элементов массива по возрастанию
      *@param array - масиив который требуется отсортровать.
