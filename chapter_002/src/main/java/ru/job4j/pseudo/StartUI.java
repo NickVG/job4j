@@ -1,8 +1,9 @@
 package ru.job4j.pseudo;
 import java.lang.*;
-import java.util.Arrays;
 
 public class StartUI {
+
+    private final Shape shape;
 
     /**
      * Класс StartUI точка входа в программу
@@ -10,9 +11,14 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println(new Square().draw() + '\n');
-        System.out.println(new Triangle().draw() + '\n');
-        Triangle p = new Triangle();
-        System.out.print(p.draw());
+        Shape square = new Square();
+        Shape triangle = new Triangle();
+        new StartUI(square);
+        new StartUI(triangle);
+    }
+
+    public StartUI(Shape shape) {
+        this.shape = shape;
+        new Paint().draw(shape);
     }
 }
