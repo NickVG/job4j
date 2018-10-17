@@ -3,12 +3,10 @@ import java.lang.*;
 
 public class StartUI {
 
-    private final Shape shape;
-
     /**
      * Класс StartUI точка входа в программу
      * Запуск программы.
-     * @param args
+     * @param args нет описания
      */
     public static void main(String[] args) {
         Shape square = new Square();
@@ -17,8 +15,7 @@ public class StartUI {
         new StartUI(triangle);
     }
 
-    public StartUI(Shape shape) {
-        this.shape = shape;
+    private StartUI(Shape shape) {
         new Paint().draw(shape);
     }
 }
