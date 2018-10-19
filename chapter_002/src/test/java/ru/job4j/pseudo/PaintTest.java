@@ -1,8 +1,11 @@
 package ru.job4j.pseudo;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -12,6 +15,31 @@ import static org.junit.Assert.assertThat;
  * @since 0.1
  */
 public class PaintTest {
+
+    /**
+     * @stdout содержит дефолтный вывод в консоль.
+     */
+    private final PrintStream stdout = System.out;
+
+    /**
+     * @out буфер для результата
+     */
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    /**
+     * метод для инициализации вывода в консоль
+     */
+    @Before
+    public void loadOutput() {
+        System.out.println("execute before method");
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("execute after method");
+    }
 
     /**
      * Тест проверяющий отрисковку квадрата
@@ -24,9 +52,7 @@ public class PaintTest {
      */
     @Test
     public void whenDrawSquare() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
+        this.loadOutput();
         new Paint().draw(new Square());
         assertThat(
                 new String(out.toByteArray()),
@@ -40,7 +66,7 @@ public class PaintTest {
                                 .toString()
                 )
         );
-        System.setOut(stdout);
+        this.backOutput();
     }
 
     /**
