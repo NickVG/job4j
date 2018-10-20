@@ -34,6 +34,4 @@ public class StubInput implements Input {
     public String ask(String question) {
         return this.value[this.position++];
     }
-
-
 }

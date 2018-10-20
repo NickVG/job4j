@@ -31,7 +31,6 @@ public class PaintTest {
      */
     @Before
     public void loadOutput() {
-        System.out.println("execute before method");
         System.setOut(new PrintStream(this.out));
     }
 
