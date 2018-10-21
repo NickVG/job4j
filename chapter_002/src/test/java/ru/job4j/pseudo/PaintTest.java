@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -22,7 +21,7 @@ public class PaintTest {
     private final PrintStream stdout = System.out;
 
     /**
-     * @out буфер для результата
+     * @out буфер для хранения вывода
      */
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
@@ -34,6 +33,9 @@ public class PaintTest {
         System.setOut(new PrintStream(this.out));
     }
 
+    /**
+     * метод для инициализации вывода в консоль
+     */
     @After
     public void backOutput() {
         System.setOut(this.stdout);
