@@ -18,7 +18,7 @@ import org.junit.Before;
 public class StartUITest {
 
     Tracker tracker = new Tracker();
-    Input input;
+//    Input input;
 
     /**
      * @stdout содержит дефолтный вывод в консоль.
@@ -52,14 +52,28 @@ public class StartUITest {
      * создаём StubInput с последовательностью действий
      * создаём StartUI и вызываем метод init()
      * проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции
-     */
+
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         this.input = new StubInput(new String[]{"0", "test name", "desc", "6"});
         new StartUI(this.input, this.tracker).init();
         assertThat(this.tracker.findAll()[3].getName(), is("test name"));
     }
+*/
 
+    @Test
+    public void whenShowAllTasks2() {
+        PrintStream stdout = System.out;
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+//        this.input = new StubInput(new String[]{"1", "6"});
+        Input input = new StubInput(new String[]{"1", "6"});
+        new NoStringsStartUI(input, this.tracker).init();
+//        assertThat(this.tracker.findAll(), is(this.test3));
+        assertThat(new String(out.toByteArray()), is(this.tracker.findAll()));
+        System.setOut(stdout);
+
+    }
     /**
      * метод проверяющий обновление заявки
      * создаём StubInput с последовательностью действий(производим замену заявки)
@@ -118,16 +132,5 @@ public class StartUITest {
      * создаём StartUI и вызываем метод init()
      * проверяем, что выводятся верные 2 заявки.
      */
-    @Test
-    public void whenShowAllTasks2() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-        this.input = new StubInput(new String[]{"1", "6"});
-        new StartUI(this.input, this.tracker).init();
-        assertThat(this.tracker.findAll(), is(this.test3));
-//        assertThat(new String(out.toByteArray()), is(this.tracker.findAll()));
-        System.setOut(stdout);
 
-    }
 }
