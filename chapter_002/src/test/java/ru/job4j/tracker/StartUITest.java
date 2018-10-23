@@ -20,7 +20,7 @@ import org.junit.Before;
 public class StartUITest {
 
     Tracker tracker = new Tracker();
-//    Input input;
+    Input input;
 
     /**
      * @stdout содержит дефолтный вывод в консоль.
@@ -42,44 +42,46 @@ public class StartUITest {
     Item[] test3 = {item1, item2, item3};
     Item[] test2 = {item1, item2};
 
+    /**
+     * Метод выполняющийся перед каждым тестом перехватывающий поток
+     */
+    @Before
     public void loadOutput() {
         System.setOut(new PrintStream(this.out));
     }
 
+    /**
+     * Метод выполняющийся после каждого тесте возвращающий поток в консоль
+     */
+    @After
     public void backOutput() {
         System.setOut(this.stdout);
     }
+
     /**
      * Метод проверяющий создание заявок
      * создаём StubInput с последовательностью действий
      * создаём StartUI и вызываем метод init()
      * проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции
-
+     */
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         this.input = new StubInput(new String[]{"0", "test name", "desc", "6"});
         new StartUI(this.input, this.tracker).init();
         assertThat(this.tracker.findAll()[3].getName(), is("test name"));
     }
-*/
+
     /**
      * Второй метод проверяющий поиск всех заявок
      * создаём StubInput с последовательностью действий(производим замену заявки)
      * создаём StartUI и вызываем метод init()
-     * проверяем, что выводятся верные 2 заявки.
+     * проверяем, что в консоль выводятся верные заявки.
      */
     @Test
     public void whenShowAllTasks2() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-//        this.input = new StubInput(new String[]{"1", "6"});
-        Input input = new StubInput(new String[]{"1", "6"});
-        new NoStringsStartUI(input, this.tracker).init();
-//        assertThat(this.tracker.findAll(), is(this.test3));
-        assertThat(new String(out.toByteArray()), is(Arrays.toString(this.tracker.findAll())));
-        System.setOut(stdout);
-
+        this.input = new StubInput(new String[]{"1", "6"});
+        new NoStringsStartUI(this.input, this.tracker).init();
+        assertThat(new String(out.toByteArray()), is(Arrays.toString(test3)));
     }
     /**
      * метод проверяющий обновление заявки
@@ -121,10 +123,22 @@ public class StartUITest {
     }
 
     /**
+     * Метод проверяющий поиск заявик по имени
+     * создаём StubInput с последовательностью действий(производим писк заявок по имени)
+     * создаём NoStringsStartUI и вызываем метод init()
+     * проверяем, что Вывод в консоль совпадает с предпологаемым результатом
+     */
+    @Test
+    public void whenShowAllTasksByName2() {
+        this.input = new StubInput(new String[]{"5", "test name1", "6"});
+        new NoStringsStartUI(this.input, this.tracker).init();
+        assertThat(new String(out.toByteArray()), is(Arrays.toString(this.test2)));
+    }
+
+    /**
      * Метод проверяющий удаление заявки
      * создаём StubInput с последовательностью действий(производим удаление заявки)
      * создаём StartUI и вызываем метод init()
-     *
      */
     @Test
     public void whenDeleteTask() {

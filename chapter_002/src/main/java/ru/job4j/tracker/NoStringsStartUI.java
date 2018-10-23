@@ -119,6 +119,7 @@ public class NoStringsStartUI {
      */
     private void findByName() {
         String taskName = this.input.ask("");
+        System.out.print(Arrays.toString(tracker.findByName(taskName)));
     }
 
     /**
