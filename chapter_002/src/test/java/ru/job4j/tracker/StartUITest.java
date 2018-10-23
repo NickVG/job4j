@@ -5,6 +5,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+
 import org.junit.After;
 import org.junit.Before;
 
@@ -60,7 +62,12 @@ public class StartUITest {
         assertThat(this.tracker.findAll()[3].getName(), is("test name"));
     }
 */
-
+    /**
+     * Второй метод проверяющий поиск всех заявок
+     * создаём StubInput с последовательностью действий(производим замену заявки)
+     * создаём StartUI и вызываем метод init()
+     * проверяем, что выводятся верные 2 заявки.
+     */
     @Test
     public void whenShowAllTasks2() {
         PrintStream stdout = System.out;
@@ -70,7 +77,7 @@ public class StartUITest {
         Input input = new StubInput(new String[]{"1", "6"});
         new NoStringsStartUI(input, this.tracker).init();
 //        assertThat(this.tracker.findAll(), is(this.test3));
-        assertThat(new String(out.toByteArray()), is(this.tracker.findAll()));
+        assertThat(new String(out.toByteArray()), is(Arrays.toString(this.tracker.findAll())));
         System.setOut(stdout);
 
     }
@@ -125,12 +132,4 @@ public class StartUITest {
         new StartUI(input, this.tracker).init();
         assertThat((this.tracker.findAll()), is((this.test2)));
     }
-
-    /**
-     * Второй метод проверяющий поиск всех заявок
-     * создаём StubInput с последовательностью действий(производим замену заявки)
-     * создаём StartUI и вызываем метод init()
-     * проверяем, что выводятся верные 2 заявки.
-     */
-
 }

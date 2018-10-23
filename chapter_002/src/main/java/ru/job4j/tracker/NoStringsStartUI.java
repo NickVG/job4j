@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 import java.lang.*;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class NoStringsStartUI {
@@ -92,7 +93,7 @@ public class NoStringsStartUI {
      * Метод реализующий вывод всех заявок находящихся в хранилище.
      */
     private void showAllItems() {
-        System.out.print(tracker.findAll());
+        System.out.print(Arrays.toString(tracker.findAll()));
     }
 
     /**
