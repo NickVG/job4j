@@ -81,8 +81,22 @@ public class StartUITest {
     public void whenShowAllTasks2() {
         this.input = new StubInput(new String[]{"1", "6"});
         new NoStringsStartUI(this.input, this.tracker).init();
-        assertThat(new String(out.toByteArray()), is(Arrays.toString(test3)));
+        assertThat(new String(out.toByteArray()), is(Arrays.toString(this.test3)));
     }
+
+    /**
+     * Третий метод проверяющий поиск всех заявок
+     * создаём StubInput с последовательностью действий(производим замену заявки)
+     * создаём StartUI и вызываем метод init()
+     * проверяем, что в консоль выводятся верные данные.
+     */
+    @Test
+    public void whenShowAllTasks3() {
+        this.input = new StubInput(new String[]{"1", "6"});
+        new StartUI(this.input, this.tracker).init();
+        assertThat(new String(out.toByteArray()), is(StartUI.getLOG()));
+    }
+
     /**
      * метод проверяющий обновление заявки
      * создаём StubInput с последовательностью действий(производим замену заявки)
@@ -113,13 +127,28 @@ public class StartUITest {
      * Метод проверяющий поиск заявик по имени
      * создаём StubInput с последовательностью действий(производим писк заявок по имени)
      * создаём StartUI и вызываем метод init()
-     * проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции
+     * проверяем, что метод осуществляющий поиск совпадает с верным результатом
      */
     @Test
     public void whenShowAllTasksByName() {
         Input input = new StubInput(new String[]{"5", "test name1", "6"});
         new StartUI(input, this.tracker).init();
         assertThat(this.tracker.findByName("test name1"), is(this.test2));
+    }
+
+    /**
+     * Метод проверяющий поиск заявик по имени
+     * создаём StubInput с последовательностью действий(производим писк заявок по имени)
+     * создаём StartUI и вызываем метод init()
+     * проверяем, что в консоль выводится верная информация
+     */
+    @Test
+    public void whenShowAllTasksByName3() {
+        Input input = new StubInput(new String[]{"5"});
+        input = new StubInput(new String[]{"test name1"});
+        input = new StubInput(new String[]{"6"});
+        new StartUI(input, this.tracker).init();
+        assertThat(new String(out.toByteArray()), is(StartUI.getLOG()));
     }
 
     /**
