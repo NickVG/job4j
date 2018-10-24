@@ -20,7 +20,6 @@ import org.junit.Before;
 public class StartUITest {
 
     Tracker tracker = new Tracker();
-    Input input;
 
     /**
      * @stdout содержит дефолтный вывод в консоль.
@@ -66,8 +65,8 @@ public class StartUITest {
      */
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
-        this.input = new StubInput(new String[]{"0", "test name", "desc", "6"});
-        new StartUI(this.input, this.tracker).init();
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
+        new StartUI(input, this.tracker).init();
         assertThat(this.tracker.findAll()[3].getName(), is("test name"));
     }
 
@@ -79,8 +78,8 @@ public class StartUITest {
      */
     @Test
     public void whenShowAllTasks2() {
-        this.input = new StubInput(new String[]{"1", "6"});
-        new NoStringsStartUI(this.input, this.tracker).init();
+        Input input = new StubInput(new String[]{"1", "6"});
+        new NoStringsStartUI(input, this.tracker).init();
         assertThat(new String(out.toByteArray()), is(Arrays.toString(this.test3)));
     }
 
@@ -92,9 +91,9 @@ public class StartUITest {
      */
     @Test
     public void whenShowAllTasks3() {
-        this.input = new StubInput(new String[]{"1", "6"});
-        new StartUI(this.input, this.tracker).init();
-        assertThat(new String(out.toByteArray()), is(StartUI.getLOG()));
+        Input input = new StubInput(new String[]{"1", "6"});
+        new StartUI(input, this.tracker).init();
+        assertThat(new String(out.toByteArray()), is(StartUI.getlog()));
     }
 
     /**
@@ -148,7 +147,7 @@ public class StartUITest {
         input = new StubInput(new String[]{"test name1"});
         input = new StubInput(new String[]{"6"});
         new StartUI(input, this.tracker).init();
-        assertThat(new String(out.toByteArray()), is(StartUI.getLOG()));
+        assertThat(new String(out.toByteArray()), is(StartUI.getlog()));
     }
 
     /**
@@ -159,8 +158,8 @@ public class StartUITest {
      */
     @Test
     public void whenShowAllTasksByName2() {
-        this.input = new StubInput(new String[]{"5", "test name1", "6"});
-        new NoStringsStartUI(this.input, this.tracker).init();
+        Input input = new StubInput(new String[]{"5", "test name1", "6"});
+        new NoStringsStartUI(input, this.tracker).init();
         assertThat(new String(out.toByteArray()), is(Arrays.toString(this.test2)));
     }
 
