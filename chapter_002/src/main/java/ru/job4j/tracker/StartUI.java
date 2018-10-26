@@ -175,8 +175,9 @@ public class StartUI {
      * Метод для отображения списка меню
      */
     private void showMenu() {
-        System.out.println("Меню.");
-        setlog("Меню." + System.lineSeparator());
+        Log.stringLog("Меню.");
+        //        System.out.println("Меню.");
+//        setlog("Меню." + System.lineSeparator());
         System.out.println("Для добавления новой заявки введите " + ADD);
         setlog(log += "Для добавления новой заявки введите " + ADD + System.lineSeparator());
         System.out.println("Для вывода списка всех заявок введите " + SHOW);
