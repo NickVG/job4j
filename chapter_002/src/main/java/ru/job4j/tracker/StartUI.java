@@ -35,7 +35,7 @@ public class StartUI {
     /**
      * Переменная для записи данных выводящихся в консоль
      */
-    private static String log  = "";
+    private String log  = "";
 
     /**
      * Получение данных от пользователя.
@@ -61,8 +61,12 @@ public class StartUI {
      * Метод для получения текстовых данных выводящихся в консоль во время работы программы
      * @return MENU
      */
-    public static String getlog() {
-        return log;
+    public String getlog() {
+        return this.log;
+    }
+
+    private void setlog(String log) {
+        this.log += log;
     }
 
     /**
@@ -109,11 +113,11 @@ public class StartUI {
      */
     private void showAllItems() {
         System.out.println("------------ Спиcок всех имеющихся заявок:  --------------");
-        log += "------------ Спиcок всех имеющихся заявок:  --------------" + System.lineSeparator();
+        setlog("------------ Спиcок всех имеющихся заявок:  --------------" + System.lineSeparator());
         System.out.println(Arrays.toString(tracker.findAll()));
-        log += Arrays.toString(tracker.findAll()) + System.lineSeparator();
+        setlog(Arrays.toString(tracker.findAll()) + System.lineSeparator());
         System.out.println();
-        log += System.lineSeparator();
+        setlog(System.lineSeparator());
     }
 
     /**
@@ -147,13 +151,13 @@ public class StartUI {
      */
     private void findByName() {
         System.out.println("------------ Поиск заявки по имени--------------");
-        log += "------------ Поиск заявки по имени--------------" +  System.lineSeparator();
+        setlog("------------ Поиск заявки по имени--------------" +  System.lineSeparator());
         String taskName = this.input.ask("Введите имя заявки котрую требуется найти : ");
-        log += "Введите имя заявки котрую требуется найти : " + System.lineSeparator();
+        setlog("Введите имя заявки котрую требуется найти : " + System.lineSeparator());
         System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
-        log += "------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------" + System.lineSeparator();
+        setlog("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------" + System.lineSeparator());
         System.out.println();
-        log += System.lineSeparator();
+        setlog(System.lineSeparator());
     }
 
     /**
@@ -172,21 +176,21 @@ public class StartUI {
      */
     private void showMenu() {
         System.out.println("Меню.");
-        log += "Меню." + System.lineSeparator();
+        setlog("Меню." + System.lineSeparator());
         System.out.println("Для добавления новой заявки введите " + ADD);
-        log += "Для добавления новой заявки введите " + ADD + System.lineSeparator();
+        setlog(log += "Для добавления новой заявки введите " + ADD + System.lineSeparator());
         System.out.println("Для вывода списка всех заявок введите " + SHOW);
-        log += "Для вывода списка всех заявок введите " + SHOW + System.lineSeparator();
+        setlog("Для вывода списка всех заявок введите " + SHOW + System.lineSeparator());
         System.out.println("Для редактирования заявки введите " + EDIT);
-        log += "Для редактирования заявки введите " + EDIT + System.lineSeparator();
+        setlog("Для редактирования заявки введите " + EDIT + System.lineSeparator());
         System.out.println("Для удаления заявки " + DELETE);
-        log += "Для удаления заявки " + DELETE + System.lineSeparator();
+        setlog("Для удаления заявки " + DELETE + System.lineSeparator());
         System.out.println("Для поиска заявки по ID введите " + FINDBYID);
-        log += "Для поиска заявки по ID введите " + FINDBYID + System.lineSeparator();
+        setlog("Для поиска заявки по ID введите " + FINDBYID + System.lineSeparator());
         System.out.println("Для поиска заявки по имени введите " + FINDBYNAME);
-        log += "Для поиска заявки по имени введите " + FINDBYNAME + System.lineSeparator();
+        setlog("Для поиска заявки по имени введите " + FINDBYNAME + System.lineSeparator());
         System.out.println("Для выхода из программы введите " + EXIT);
-        log += "Для выхода из программы введите " + EXIT + System.lineSeparator();
+        setlog("Для выхода из программы введите " + EXIT + System.lineSeparator());
     }
 
     /**

@@ -88,7 +88,7 @@ public class StartUITest {
      * создаём StubInput с последовательностью действий(производим замену заявки)
      * создаём StartUI и вызываем метод init()
      * проверяем, что в консоль выводятся верные данные.
-     */
+
     @Test
     public void whenShowAllTasks3() {
         Input input = new StubInput(new String[]{"1", "6"});
@@ -140,7 +140,7 @@ public class StartUITest {
      * создаём StubInput с последовательностью действий(производим писк заявок по имени)
      * создаём StartUI и вызываем метод init()
      * проверяем, что в консоль выводится верная информация
-     */
+
     @Test
     public void whenShowAllTasksByName3() {
         Input input = new StubInput(new String[]{"5"});
