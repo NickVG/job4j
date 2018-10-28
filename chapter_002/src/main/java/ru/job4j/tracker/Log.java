@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class Log {
-    StringBuilder log;
+    StringBuilder log = new StringBuilder();;
 
     public void stringLog(String string) {
         System.out.println(string);
