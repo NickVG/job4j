@@ -30,6 +30,7 @@ public class StartUITest {
      * @out буфер для хранения вывода
      */
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
     /**
      * item1, item2 item3 добавленные в ручную заявки используемые в тестах
      * test2 - массив типа Item использующий первые две заявки
@@ -92,9 +93,9 @@ public class StartUITest {
     @Test
     public void whenShowAllTasks3() {
         Input input = new StubInput(new String[]{"1", "6"});
-        new StartUI(input, this.tracker).init();
-//        Log log = new Log();
-        assertThat(new String(out.toByteArray()), is(log.getlog()));
+        StartUI startUI = new StartUI(input, this.tracker);
+        startUI.init();
+        assertThat(new String(out.toByteArray()), is(startUI.log.getLog()));
     }
 
     /**
@@ -147,8 +148,9 @@ public class StartUITest {
         Input input = new StubInput(new String[]{"5"});
         input = new StubInput(new String[]{"test name1"});
         input = new StubInput(new String[]{"6"});
-        new StartUI(input, this.tracker).init();
-        assertThat(new String(out.toByteArray()), is(log.getlog()));
+        StartUI startUI = new StartUI(input, this.tracker);
+        startUI.init();
+        assertThat(new String(out.toByteArray()), is(startUI.log.getLog()));
     }
 
     /**

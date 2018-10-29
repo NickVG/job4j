@@ -57,18 +57,10 @@ public class StartUI {
         this.tracker = tracker;
     }
 
-    Log log = new Log();
     /**
-     * Метод для получения текстовых данных выводящихся в консоль во время работы программы
-     * @return MENU
-
-    public String getlog() {
-        return this.log;
-    }
-
-    private void setlog(String log) {
-        this.log += log;
-    }
+     * инициализация логгирования
+     */
+    Log log = new Log();
 
     /**
      * Основой цикл программы.
@@ -113,11 +105,8 @@ public class StartUI {
      * Метод реализующий вывод всех заявок находящихся в хранилище.
      */
     private void showAllItems() {
-//        System.out.println("------------ Спиcок всех имеющихся заявок:  --------------");
-        log.stringLog("------------ Спиcок всех имеющихся заявок:  --------------" + System.lineSeparator());
-//        System.out.println(Arrays.toString(tracker.findAll()));
-        log.stringLog(Arrays.toString(tracker.findAll()) + System.lineSeparator());
-//        System.out.println();
+        log.stringLog("------------ Спиcок всех имеющихся заявок:  --------------");
+        log.stringLog(Arrays.toString(tracker.findAll()));
         log.stringLog(System.lineSeparator());
     }
 
@@ -151,13 +140,10 @@ public class StartUI {
      * Метод реализующий поиск заявки по имени.
      */
     private void findByName() {
-//        System.out.println("------------ Поиск заявки по имени--------------");
         log.stringLog("------------ Поиск заявки по имени--------------");
         String taskName = this.input.ask("Введите имя заявки котрую требуется найти : ");
         log.stringLog("");
-//        System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
         log.stringLog("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
-//        System.out.println();
         log.stringLog(System.lineSeparator());
     }
 
@@ -177,21 +163,12 @@ public class StartUI {
      */
     private void showMenu() {
         log.stringLog("Меню.");
-        //        System.out.println("Меню.");
-//        setlog("Меню." + System.lineSeparator());
-        //System.out.println("Для добавления новой заявки введите " + ADD);
         log.stringLog("Для добавления новой заявки введите " + ADD);
-//        System.out.println("Для вывода списка всех заявок введите " + SHOW);
         log.stringLog("Для вывода списка всех заявок введите " + SHOW);
-//        System.out.println("Для редактирования заявки введите " + EDIT);
         log.stringLog("Для редактирования заявки введите " + EDIT);
-//        System.out.println("Для удаления заявки " + DELETE);
         log.stringLog("Для удаления заявки " + DELETE);
-//        System.out.println("Для поиска заявки по ID введите " + FINDBYID);
         log.stringLog("Для поиска заявки по ID введите " + FINDBYID);
-//        System.out.println("Для поиска заявки по имени введите " + FINDBYNAME);
         log.stringLog("Для поиска заявки по имени введите " + FINDBYNAME);
-//        System.out.println("Для выхода из программы введите " + EXIT);
         log.stringLog("Для выхода из программы введите " + EXIT);
     }
 
