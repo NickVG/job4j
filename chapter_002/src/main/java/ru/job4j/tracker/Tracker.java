@@ -73,7 +73,6 @@ public class Tracker {
 
     /**
      * Метод для удаления заявок
-     *
      * @param id
      */
     public void delete(String id) {
@@ -122,6 +121,18 @@ public class Tracker {
                 result = item;
                 break;
             }
+        }
+        return result;
+    }
+    /**
+     * Метод для проверки существования id
+     * @param id ID заявки
+     * @return result существует такой id или нет.
+     */
+    public boolean idEsxists(String id) {
+        boolean result = false;
+        if(this.position != 0) {
+            result = true;
         }
         return result;
     }

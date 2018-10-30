@@ -145,12 +145,46 @@ public class StartUITest {
     */
     @Test
     public void whenShowAllTasksByName3() {
-        Input input = new StubInput(new String[]{"5"});
-        input = new StubInput(new String[]{"test name1"});
-        input = new StubInput(new String[]{"6"});
+        Input input = new StubInput(new String[]{"5", "test name1", "6"});
         StartUI startUI = new StartUI(input, this.tracker);
         startUI.init();
         assertThat(new String(out.toByteArray()), is(startUI.log.getLog()));
+    }
+
+
+
+    /**
+     * Метод проверяющий поиск заявик по имени
+     * создаём StubInput с последовательностью действий(производим писк заявок по имени)
+     * создаём StartUI и вызываем метод init()
+     * проверяем, что в консоль выводится верная информация
+     */
+    @Test
+    public void whenShowAllTasksByName4() {
+        Input input = new StubInput(new String[]{"5", "test name1", "6"});
+        StartUI startUI = new StartUI(input, this.tracker);
+        startUI.init();
+        assertThat(new String(out.toByteArray()), is(
+                new StringBuilder()
+                    .append("Меню.").append(System.lineSeparator())
+                    .append("Для добавления новой заявки введите ").append(0).append(System.lineSeparator())
+                    .append("Для вывода списка всех заявок введите ").append(1).append(System.lineSeparator())
+                    .append("Для редактирования заявки введите ").append(2).append(System.lineSeparator())
+                    .append("Для удаления заявки ").append(3).append(System.lineSeparator())
+                    .append("Для поиска заявки по ID введите ").append(4).append(System.lineSeparator())
+                    .append("Для поиска заявки по имени введите ").append(5).append(System.lineSeparator())
+                    .append("Для выхода из программы введите ").append(6).append(System.lineSeparator())
+                    .append(Arrays.toString(this.test2)).append(System.lineSeparator())
+                    .append("Меню.").append(System.lineSeparator())
+                    .append("Для добавления новой заявки введите ").append(0).append(System.lineSeparator())
+                    .append("Для вывода списка всех заявок введите ").append(1).append(System.lineSeparator())
+                    .append("Для редактирования заявки введите ").append(2).append(System.lineSeparator())
+                    .append("Для удаления заявки ").append(3).append(System.lineSeparator())
+                    .append("Для поиска заявки по ID введите ").append(4).append(System.lineSeparator())
+                    .append("Для поиска заявки по имени введите ").append(5).append(System.lineSeparator())
+                    .append("Для выхода из программы введите ").append(6).append(System.lineSeparator())
+                    ));
+
     }
 
     /**

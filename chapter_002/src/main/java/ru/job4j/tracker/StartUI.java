@@ -116,13 +116,18 @@ public class StartUI {
     private void modifyItem() {
         System.out.println("------------ Редактирование --------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется заменить : ");
-        String taskName = this.input.ask("Введите имя заявки : ");
-        String taskDescription = this.input.ask("Введите описание заявки : ");
-        Item newItem = new Item(taskName, taskDescription);
-        tracker.replace(taskId, newItem);
-        System.out.println("------------ Новое имя заявки: " + newItem.getName() + "-----------");
-        System.out.println("------------ Новое описание заявки: " + newItem.getDescription() + "-----------");
-        System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
+        if(tracker.idEsxists(taskId)) {
+            String taskName = this.input.ask("Введите новое имя заявки : ");
+            String taskDescription = this.input.ask("Введите новое описание заявки : ");
+            Item newItem = new Item(taskName, taskDescription);
+            tracker.replace(taskId, newItem);
+            System.out.println("------------ Новое имя заявки: " + newItem.getName() + "-----------");
+            System.out.println("------------ Новое описание заявки: " + newItem.getDescription() + "-----------");
+            System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
+        }
+        else {
+            System.out.println("Данный ID не существует, введите верный ID");
+        }
         System.out.println();
     }
 
@@ -132,7 +137,12 @@ public class StartUI {
     private void findById() {
         System.out.println("------------ Поиск заявки по ID--------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется найти : ");
-        System.out.println("------------ ID требуемой заявки: " + tracker.findById(taskId).getId() + "-----------");
+        if(tracker.idEsxists(taskId)) {
+            System.out.println("------------ ID требуемой заявки: " + tracker.findById(taskId).getId() + "-----------");
+        }
+        else {
+            System.out.println("Данный ID не существует, введиет верный ID");
+        }
         System.out.println();
     }
 
@@ -154,7 +164,12 @@ public class StartUI {
         System.out.println("------------ Удаление заявки --------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется удалить : ");
         tracker.delete(taskId);
-        System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
+        if(tracker.idEsxists(taskId)) {
+            System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
+        }
+        else {
+            System.out.println("Данный ID не существует, введиет верный ID");
+        }
         System.out.println();
     }
 
@@ -180,5 +195,4 @@ public class StartUI {
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
-
 }
