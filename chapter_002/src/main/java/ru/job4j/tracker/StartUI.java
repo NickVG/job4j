@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+
 import java.lang.*;
 import java.util.Arrays;
 
@@ -24,7 +25,7 @@ public class StartUI {
      */
     private static final String FINDBYID = "4";
     /**
-     *  Константа для поиска заявки по имени.
+     * Константа для поиска заявки по имени.
      */
     private static final String FINDBYNAME = "5";
     /**
@@ -49,7 +50,8 @@ public class StartUI {
 
     /**
      * Конструтор инициализирующий поля.
-     * @param input ввод данных.
+     *
+     * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
     public StartUI(Input input, Tracker tracker) {
@@ -116,7 +118,7 @@ public class StartUI {
     private void modifyItem() {
         System.out.println("------------ Редактирование --------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется заменить : ");
-        if(tracker.idEsxists(taskId)) {
+        if (tracker.idEsxists(taskId)) {
             String taskName = this.input.ask("Введите новое имя заявки : ");
             String taskDescription = this.input.ask("Введите новое описание заявки : ");
             Item newItem = new Item(taskName, taskDescription);
@@ -124,8 +126,7 @@ public class StartUI {
             System.out.println("------------ Новое имя заявки: " + newItem.getName() + "-----------");
             System.out.println("------------ Новое описание заявки: " + newItem.getDescription() + "-----------");
             System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
-        }
-        else {
+        } else {
             System.out.println("Данный ID не существует, введите верный ID");
         }
         System.out.println();
@@ -137,10 +138,9 @@ public class StartUI {
     private void findById() {
         System.out.println("------------ Поиск заявки по ID--------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется найти : ");
-        if(tracker.idEsxists(taskId)) {
+        if (tracker.idEsxists(taskId)) {
             System.out.println("------------ ID требуемой заявки: " + tracker.findById(taskId).getId() + "-----------");
-        }
-        else {
+        } else {
             System.out.println("Данный ID не существует, введиет верный ID");
         }
         System.out.println();
@@ -164,10 +164,9 @@ public class StartUI {
         System.out.println("------------ Удаление заявки --------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется удалить : ");
         tracker.delete(taskId);
-        if(tracker.idEsxists(taskId)) {
+        if (tracker.idEsxists(taskId)) {
             System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
-        }
-        else {
+        } else {
             System.out.println("Данный ID не существует, введиет верный ID");
         }
         System.out.println();
@@ -190,6 +189,7 @@ public class StartUI {
     /**
      * Класс StartUI точка входа в программу
      * Запуск программы.
+     *
      * @param args
      */
     public static void main(String[] args) {

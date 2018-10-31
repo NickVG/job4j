@@ -30,7 +30,6 @@ public class Tracker {
 
     /**
      * Метод для подсчёта заведённых заявок
-     *
      * @return число заведённых заявок
      */
     public int idQuantity() {
@@ -45,7 +44,6 @@ public class Tracker {
 
     /**
      * Метод реализующий добавление заявки в хранилище
-     *
      * @param item новая заявка
      * @return item
      */
@@ -131,7 +129,7 @@ public class Tracker {
      */
     public boolean idEsxists(String id) {
         boolean result = false;
-        if(this.position != 0) {
+        if (this.position != 0) {
             result = true;
         }
         return result;
