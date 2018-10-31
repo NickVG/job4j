@@ -165,7 +165,7 @@ public class StartUITest {
         StartUI startUI = new StartUI(input, this.tracker);
         startUI.init();
         assertThat(new String(out.toByteArray()), is(
-                new StringBuilder()
+                new String(new StringBuilder()
                     .append("Меню.").append(System.lineSeparator())
                     .append("Для добавления новой заявки введите ").append(0).append(System.lineSeparator())
                     .append("Для вывода списка всех заявок введите ").append(1).append(System.lineSeparator())
@@ -174,7 +174,11 @@ public class StartUITest {
                     .append("Для поиска заявки по ID введите ").append(4).append(System.lineSeparator())
                     .append("Для поиска заявки по имени введите ").append(5).append(System.lineSeparator())
                     .append("Для выхода из программы введите ").append(6).append(System.lineSeparator())
-                    .append(Arrays.toString(this.test2)).append(System.lineSeparator())
+                    .append("------------ Поиск заявки по имени--------------").append(System.lineSeparator())
+                    .append(System.lineSeparator())
+                    .append("------------ спиcок заявок с совпадающим именем: ").append(Arrays.toString(this.test2)).append("-----------").append(System.lineSeparator())
+                    .append(System.lineSeparator())
+                    .append(System.lineSeparator())
                     .append("Меню.").append(System.lineSeparator())
                     .append("Для добавления новой заявки введите ").append(0).append(System.lineSeparator())
                     .append("Для вывода списка всех заявок введите ").append(1).append(System.lineSeparator())
@@ -183,7 +187,7 @@ public class StartUITest {
                     .append("Для поиска заявки по ID введите ").append(4).append(System.lineSeparator())
                     .append("Для поиска заявки по имени введите ").append(5).append(System.lineSeparator())
                     .append("Для выхода из программы введите ").append(6).append(System.lineSeparator())
-                    ));
+                    )));
 
     }
 
