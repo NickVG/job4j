@@ -151,8 +151,6 @@ public class StartUITest {
         assertThat(new String(out.toByteArray()), is(startUI.log.getLog()));
     }
 
-
-
     /**
      * Метод проверяющий поиск заявик по имени
      * создаём StubInput с последовательностью действий(производим писк заявок по имени)
