@@ -176,14 +176,16 @@ public class StartUI {
      * Метод для отображения списка меню
      */
     private void showMenu() {
-        log.stringLog("Меню.");
-        log.stringLog("Для добавления новой заявки введите " + ADD);
-        log.stringLog("Для вывода списка всех заявок введите " + SHOW);
-        log.stringLog("Для редактирования заявки введите " + EDIT);
-        log.stringLog("Для удаления заявки " + DELETE);
-        log.stringLog("Для поиска заявки по ID введите " + FINDBYID);
-        log.stringLog("Для поиска заявки по имени введите " + FINDBYNAME);
-        log.stringLog("Для выхода из программы введите " + EXIT);
+        StringBuilder menu = new StringBuilder()
+            .append("Меню.").append(System.lineSeparator())
+            .append("Для добавления новой заявки введите ").append(ADD).append(System.lineSeparator())
+            .append("Для вывода списка всех заявок введите ").append(SHOW).append(System.lineSeparator())
+            .append("Для редактирования заявки введите ").append(EDIT).append(System.lineSeparator())
+            .append("Для удаления заявки ").append(DELETE).append(System.lineSeparator())
+            .append("Для поиска заявки по ID введите ").append(FINDBYID).append(System.lineSeparator())
+            .append("Для поиска заявки по имени введите ").append(FINDBYNAME).append(System.lineSeparator())
+            .append("Для выхода из программы введите ").append(EXIT).append(System.lineSeparator());
+        System.out.print(menu);
     }
 
     /**
