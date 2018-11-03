@@ -32,11 +32,29 @@ public class StartUI {
      * Константа для выхода из цикла.
      */
     private static final String EXIT = "6";
+    /**
+     * Константа содержащая в себе список меню для пользователя
+     */
+    private static final StringBuilder MENU = new StringBuilder()
+            .append("Меню.").append(System.lineSeparator())
+            .append("Для добавления новой заявки введите ").append(ADD).append(System.lineSeparator())
+            .append("Для вывода списка всех заявок введите ").append(SHOW).append(System.lineSeparator())
+            .append("Для редактирования заявки введите ").append(EDIT).append(System.lineSeparator())
+            .append("Для удаления заявки ").append(DELETE).append(System.lineSeparator())
+            .append("Для поиска заявки по ID введите ").append(FINDBYID).append(System.lineSeparator())
+            .append("Для поиска заявки по имени введите ").append(FINDBYNAME).append(System.lineSeparator())
+            .append("Для выхода из программы введите ").append(EXIT).append(System.lineSeparator());
+
+    /**
+     * метод возвращающий значение меню для пользователя
+     */
+    public StringBuilder getMenu() {
+        return this.MENU;
+    }
 
     /**
      * Переменная для записи данных выводящихся в консоль
      */
-//    private String log  = "";
 
     /**
      * Получение данных от пользователя.
@@ -107,9 +125,9 @@ public class StartUI {
      * Метод реализующий вывод всех заявок находящихся в хранилище.
      */
     private void showAllItems() {
-        log.stringLog("------------ Спиcок всех имеющихся заявок:  --------------");
-        log.stringLog(Arrays.toString(tracker.findAll()));
-        log.stringLog(System.lineSeparator());
+        System.out.println("------------ Спиcок всех имеющихся заявок:  --------------");
+        System.out.println(Arrays.toString(tracker.findAll()));
+        System.out.println();
     }
 
     /**
@@ -150,11 +168,10 @@ public class StartUI {
      * Метод реализующий поиск заявки по имени.
      */
     private void findByName() {
-        log.stringLog("------------ Поиск заявки по имени--------------");
-        String taskName = this.input.ask("Введите имя заявки котрую требуется найти : ");
-        log.stringLog("");
-        log.stringLog("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
-        log.stringLog(System.lineSeparator());
+        System.out.println("------------ Поиск заявки по имени--------------");
+        String taskName = this.input.ask("Введите имя заявки котрую требуется найти: ");
+        System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
+        System.out.println();
     }
 
     /**
@@ -176,16 +193,7 @@ public class StartUI {
      * Метод для отображения списка меню
      */
     private void showMenu() {
-        StringBuilder menu = new StringBuilder()
-            .append("Меню.").append(System.lineSeparator())
-            .append("Для добавления новой заявки введите ").append(ADD).append(System.lineSeparator())
-            .append("Для вывода списка всех заявок введите ").append(SHOW).append(System.lineSeparator())
-            .append("Для редактирования заявки введите ").append(EDIT).append(System.lineSeparator())
-            .append("Для удаления заявки ").append(DELETE).append(System.lineSeparator())
-            .append("Для поиска заявки по ID введите ").append(FINDBYID).append(System.lineSeparator())
-            .append("Для поиска заявки по имени введите ").append(FINDBYNAME).append(System.lineSeparator())
-            .append("Для выхода из программы введите ").append(EXIT).append(System.lineSeparator());
-        System.out.print(menu);
+        System.out.print(getMenu());
     }
 
     /**

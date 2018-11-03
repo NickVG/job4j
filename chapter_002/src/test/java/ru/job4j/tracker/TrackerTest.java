@@ -15,8 +15,8 @@ import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
 
-    /**Тест для проверки работоспсобности метода по созданию заявок.
-     *
+    /**
+     *Тест для проверки работоспсобности метода по созданию заявок.
      */
 
     @Test

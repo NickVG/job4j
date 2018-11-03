@@ -85,20 +85,6 @@ public class StartUITest {
     }
 
     /**
-     * Третий метод проверяющий поиск всех заявок
-     * создаём StubInput с последовательностью действий(производим замену заявки)
-     * создаём StartUI и вызываем метод init()
-     * проверяем, что в консоль выводятся верные данные.
-     */
-    @Test
-    public void whenShowAllTasks3() {
-        Input input = new StubInput(new String[]{"1", "6"});
-        StartUI startUI = new StartUI(input, this.tracker);
-        startUI.init();
-        assertThat(new String(out.toByteArray()), is(startUI.log.getLog()));
-    }
-
-    /**
      * метод проверяющий обновление заявки
      * создаём StubInput с последовательностью действий(производим замену заявки)
      * создаём StartUI и вызываем метод init()
@@ -133,22 +119,15 @@ public class StartUITest {
     @Test
     public void whenShowAllTasksByName() {
         Input input = new StubInput(new String[]{"5", "test name1", "6"});
-        new StartUI(input, this.tracker).init();
-        assertThat(this.tracker.findByName("test name1"), is(this.test2));
-    }
-
-    /**
-     * Метод проверяющий поиск заявик по имени
-     * создаём StubInput с последовательностью действий(производим писк заявок по имени)
-     * создаём StartUI и вызываем метод init()
-     * проверяем, что в консоль выводится верная информация
-    */
-    @Test
-    public void whenShowAllTasksByName3() {
-        Input input = new StubInput(new String[]{"5", "test name1", "6"});
         StartUI startUI = new StartUI(input, this.tracker);
         startUI.init();
-        assertThat(new String(out.toByteArray()), is(startUI.log.getLog()));
+        assertThat(new String(out.toByteArray()), is(
+                new String(new StringBuilder()
+                        .append(startUI.getMenu())
+                        .append("------------ Поиск заявки по имени--------------").append(System.lineSeparator())
+                        .append("------------ спиcок заявок с совпадающим именем: ").append(Arrays.toString(this.test2)).append("-----------").append(System.lineSeparator())
+                        .append(System.lineSeparator())
+                        .append(startUI.getMenu()))));
     }
 
     /**
@@ -164,29 +143,11 @@ public class StartUITest {
         startUI.init();
         assertThat(new String(out.toByteArray()), is(
                 new String(new StringBuilder()
-                    .append("Меню.").append(System.lineSeparator())
-                    .append("Для добавления новой заявки введите ").append(0).append(System.lineSeparator())
-                    .append("Для вывода списка всех заявок введите ").append(1).append(System.lineSeparator())
-                    .append("Для редактирования заявки введите ").append(2).append(System.lineSeparator())
-                    .append("Для удаления заявки ").append(3).append(System.lineSeparator())
-                    .append("Для поиска заявки по ID введите ").append(4).append(System.lineSeparator())
-                    .append("Для поиска заявки по имени введите ").append(5).append(System.lineSeparator())
-                    .append("Для выхода из программы введите ").append(6).append(System.lineSeparator())
+                    .append(startUI.getMenu())
                     .append("------------ Поиск заявки по имени--------------").append(System.lineSeparator())
-                    .append(System.lineSeparator())
                     .append("------------ спиcок заявок с совпадающим именем: ").append(Arrays.toString(this.test2)).append("-----------").append(System.lineSeparator())
                     .append(System.lineSeparator())
-                    .append(System.lineSeparator())
-                    .append("Меню.").append(System.lineSeparator())
-                    .append("Для добавления новой заявки введите ").append(0).append(System.lineSeparator())
-                    .append("Для вывода списка всех заявок введите ").append(1).append(System.lineSeparator())
-                    .append("Для редактирования заявки введите ").append(2).append(System.lineSeparator())
-                    .append("Для удаления заявки ").append(3).append(System.lineSeparator())
-                    .append("Для поиска заявки по ID введите ").append(4).append(System.lineSeparator())
-                    .append("Для поиска заявки по имени введите ").append(5).append(System.lineSeparator())
-                    .append("Для выхода из программы введите ").append(6).append(System.lineSeparator())
-                    )));
-
+                    .append(startUI.getMenu()))));
     }
 
     /**
