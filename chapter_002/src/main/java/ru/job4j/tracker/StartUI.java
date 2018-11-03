@@ -53,10 +53,6 @@ public class StartUI {
     }
 
     /**
-     * Переменная для записи данных выводящихся в консоль
-     */
-
-    /**
      * Получение данных от пользователя.
      */
     private final Input input;
@@ -76,11 +72,6 @@ public class StartUI {
         this.input = input;
         this.tracker = tracker;
     }
-
-    /**
-     * инициализация логгирования
-     */
-    Log log = new Log();
 
     /**
      * Основой цикл программы.
@@ -199,7 +190,6 @@ public class StartUI {
     /**
      * Класс StartUI точка входа в программу
      * Запуск программы.
-     *
      * @param args
      */
     public static void main(String[] args) {
