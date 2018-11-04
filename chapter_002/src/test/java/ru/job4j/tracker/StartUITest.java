@@ -106,8 +106,15 @@ public class StartUITest {
     @Test
     public void whenShowAllTasks() {
         Input input = new StubInput(new String[]{"1", "6"});
-        new StartUI(input, this.tracker).init();
-        assertThat(this.tracker.findAll(), is(this.test3));
+        StartUI startUI = new StartUI(input, this.tracker);
+        startUI.init();
+        assertThat(new String(out.toByteArray()), is(
+                new String(new StringBuilder()
+                        .append(startUI.getMenu())
+                        .append("------------ Спиcок всех имеющихся заявок:  --------------").append(System.lineSeparator())
+                        .append(Arrays.toString(this.test3)).append(System.lineSeparator())
+                        .append(System.lineSeparator())
+                        .append(startUI.getMenu()))));
     }
 
     /**
@@ -128,26 +135,6 @@ public class StartUITest {
                         .append("------------ спиcок заявок с совпадающим именем: ").append(Arrays.toString(this.test2)).append("-----------").append(System.lineSeparator())
                         .append(System.lineSeparator())
                         .append(startUI.getMenu()))));
-    }
-
-    /**
-     * Метод проверяющий поиск заявик по имени
-     * создаём StubInput с последовательностью действий(производим писк заявок по имени)
-     * создаём StartUI и вызываем метод init()
-     * проверяем, что в консоль выводится верная информация.
-     */
-    @Test
-    public void whenShowAllTasksByName4() {
-        Input input = new StubInput(new String[]{"5", "test name1", "6"});
-        StartUI startUI = new StartUI(input, this.tracker);
-        startUI.init();
-        assertThat(new String(out.toByteArray()), is(
-                new String(new StringBuilder()
-                    .append(startUI.getMenu())
-                    .append("------------ Поиск заявки по имени--------------").append(System.lineSeparator())
-                    .append("------------ спиcок заявок с совпадающим именем: ").append(Arrays.toString(this.test2)).append("-----------").append(System.lineSeparator())
-                    .append(System.lineSeparator())
-                    .append(startUI.getMenu()))));
     }
 
     /**
