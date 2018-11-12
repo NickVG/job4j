@@ -56,8 +56,7 @@ public class MenuTracker {
 
     /**
      * Метод для получения массива меню.
-     *
-     * @return длину массива
+     * @return длина массива
      */
     public int getActionsLentgh() {
         return this.actions.size();
@@ -68,7 +67,7 @@ public class MenuTracker {
      */
     public void fillActions() {
         this.actions.add(new CreateItem());
-        this.actions.add(new ShowAllItems());  //????
+        this.actions.add(new ShowAllItems());
         this.actions.add(new MenuTracker.ModifyItem());
         this.actions.add(new MenuTracker.DeleteItem());
         this.actions.add(new FindById());
@@ -117,7 +116,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Добавление новой заявки.";
+            return ("Для добавления новой заявки нажмите " + ADD);
         }
     }
 
@@ -139,7 +138,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Показ имеющихся заявок.";
+            return "Для показа всех имеющихся заявок нажмите " + SHOW;
         }
     }
 
@@ -172,7 +171,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Редактирование заявки.";
+            return "Для редактирования заявки нажмите " + EDIT;
         }
     }
 
@@ -182,7 +181,7 @@ public class MenuTracker {
     public class FindById implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(SHOW);
+            return Integer.parseInt(FINDBYID);
         }
 
         @Override
@@ -199,7 +198,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Поиск заявки по ID.";
+            return "Для поиски заявки по ID нажмите " + FINDBYID;
         }
     }
 
@@ -222,7 +221,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Поиск заявки по имени.";
+            return "Для поиска заявки по имени нажмите " + FINDBYNAME;
         }
     }
 
@@ -250,7 +249,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Удаление заяки.";
+            return "Для удаления заяки нажмите " + DELETE;
         }
     }
 
@@ -270,75 +269,8 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Удаление из программы.";
+            return "Для выхода из программы нажмите " + EXIT;
         }
     }
 
 }
-
-/*
-public class MenuTracker {
-    private Input input;
-    private  Tracker tracker;
-    private UserAction[] actions = new UserAction[5];
-
-    public MenuTracker(Input input, Tracker tracker) {
-        this.input = input;
-        this.tracker = tracker;
-    }
-
-    public void fillActions() {
-        this.actions[0] = this.new AddItem();
-        this.actions[1] = new MenuTracker.ShowItems();
-    }
-    public void select(int key){
-        this.actions[key].execute(this.input,this.tracker);
-    }
-    public void show() {
-        for (UserAction action : this.actions) {
-            if (action != null) {
-                System.out.println(action.info());
-            }
-
-        }
-    }
-
-    private class AddItem implements UserAction {
-        public int key() {
-            return 0;
-        }
-
-        public void execute(Input input, Tracker tracker) {
-            String name = input.ask("Введите имя заявки :");
-            String desc = input.ask("Введите описание заявки :");
-            Item item = new Item(name, desc);
-            tracker.add(item);
-
-        }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Add the new item");
-        }
-    }
-    private  static class ShowItems implements UserAction {
-        public int key() {
-            return 1;
-        }
-
-        public void execute(Input input, Tracker tracker) {
-            for (Item item : tracker.findAll()) {
-                System.out.println(String.format("%s. %s", item.getName()));
-            }
-        }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Show all items");
-        }
-    }
-
-
-
-}
-*/

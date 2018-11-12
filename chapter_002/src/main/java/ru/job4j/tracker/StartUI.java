@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.lang.*;
 import java.util.Arrays;
-
+import java.util.*;
 public class StartUI {
     /**
      * Константа меню для добавления новой заявки.
@@ -77,26 +77,16 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            if (ADD.equals(answer)) {
-                this.createItem();
-            } else if (SHOW.equals(answer)) {
-                this.showAllItems();
-            } else if (EDIT.equals(answer)) {
-                this.modifyItem();
-            } else if (DELETE.equals(answer)) {
-                this.deleteItem();
-            } else if (FINDBYID.equals(answer)) {
-                this.findById();
-            } else if (FINDBYNAME.equals(answer)) {
-                this.findByName();
-            } else if (EXIT.equals(answer)) {
-                exit = true;
-            }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
         }
+        do {
+            menu.show();
+            menu.select(Integer.parseInt(input.ask("Выберите пункт меню.")));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
     /**
