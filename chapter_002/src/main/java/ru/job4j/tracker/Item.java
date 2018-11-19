@@ -45,4 +45,14 @@ public class Item {
     public long getCreate() {
         return this.create;
     }
+
+    @Override
+    public String toString() {
+        return "Item{"
+                + "id='" + id + '\''
+                + ", description='" + description + '\''
+                + ", name='" + name + '\''
+                + ", create=" + create
+                + '}';
+    }
 }

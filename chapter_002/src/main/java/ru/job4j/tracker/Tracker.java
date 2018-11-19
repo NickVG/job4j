@@ -33,13 +33,13 @@ public class Tracker {
      * @return число заведённых заявок
      */
     public int idQuantity() {
-        int quantity = 0;
+/*        int quantity = 0;
         for (int i = 0; i < this.position; i++) {
             if (items[i] != null) {
                 quantity++;
             }
-        }
-        return quantity;
+        }*/
+        return this.position;
     }
 
     /**

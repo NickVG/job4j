@@ -132,8 +132,13 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Спиcок всех имеющихся заявок:  --------------");
-            System.out.println(Arrays.toString(tracker.findAll()));
-            System.out.println();
+            Item[] all = tracker.findAll();
+            for (Item item : all) {
+                System.out.println(item);
+            }
+            if (all.length == 0) {
+                System.out.println("В трекере нет заведённых заявок.");
+            }
         }
 
         @Override
