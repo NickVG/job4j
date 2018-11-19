@@ -66,7 +66,7 @@ public class StartUITest {
      */
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});
         new StartUI(input, this.tracker).init();
         assertThat(this.tracker.findAll()[3].getName(), is("test name"));
     }
@@ -92,7 +92,7 @@ public class StartUITest {
      */
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
-        Input input = new StubInput(new String[]{"2", item1.getId(), "test replace", "заменили заявку", "6"});
+        Input input = new StubInput(new String[]{"2", item1.getId(), "test replace", "заменили заявку", "y"});
         new StartUI(input, this.tracker).init();
         assertThat(this.tracker.findById(item1.getId()).getName(), is("test replace"));
     }
@@ -105,7 +105,7 @@ public class StartUITest {
      */
     @Test
     public void whenShowAllTasks() {
-        Input input = new StubInput(new String[]{"1", "6"});
+        Input input = new StubInput(new String[]{"1", "y"});
         StartUI startUI = new StartUI(input, this.tracker);
         startUI.init();
         assertThat(new String(out.toByteArray()), is(
@@ -125,7 +125,7 @@ public class StartUITest {
      */
     @Test
     public void whenShowAllTasksByName() {
-        Input input = new StubInput(new String[]{"5", "test name1", "6"});
+        Input input = new StubInput(new String[]{"5", "test name1", "y"});
         StartUI startUI = new StartUI(input, this.tracker);
         startUI.init();
         assertThat(new String(out.toByteArray()), is(
@@ -157,7 +157,7 @@ public class StartUITest {
      */
     @Test
     public void whenDeleteTask() {
-        Input input = new StubInput(new String[]{"3", item3.getId(), "6"});
+        Input input = new StubInput(new String[]{"3", item3.getId(), "y"});
         new StartUI(input, this.tracker).init();
         assertThat((this.tracker.findAll()), is((this.test2)));
     }
