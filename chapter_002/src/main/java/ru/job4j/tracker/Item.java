@@ -46,6 +46,10 @@ public class Item {
         return this.create;
     }
 
+    /**
+     * переопределение toString
+     * @return содержимое Item
+     */
     @Override
     public String toString() {
         return "Item{"

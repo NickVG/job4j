@@ -88,6 +88,7 @@ public class MenuTracker {
      * Метод выводит на экран меню.
      */
     public void show() {
+        System.out.println("Меню");
         for (UserAction action : this.actions) {
             if (action != null) {
                 System.out.println(action.info());
@@ -165,9 +166,10 @@ public class MenuTracker {
                 String taskDescription = input.ask("Введите новое описание заявки : ");
                 Item newItem = new Item(taskName, taskDescription);
                 tracker.replace(taskId, newItem);
-                System.out.println("------------ Новое имя заявки: " + newItem.getName() + "-----------");
-                System.out.println("------------ Новое описание заявки: " + newItem.getDescription() + "-----------");
-                System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
+                System.out.println(newItem.toString());
+//                System.out.println("------------ Новое имя заявки: " + newItem.getName() + "-----------");
+//                System.out.println("------------ Новое описание заявки: " + newItem.getDescription() + "-----------");
+//                System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
             } else {
                 System.out.println("Данный ID не существует, введите верный ID");
             }

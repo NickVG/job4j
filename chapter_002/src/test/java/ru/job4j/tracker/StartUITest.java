@@ -112,9 +112,10 @@ public class StartUITest {
                 new String(new StringBuilder()
                         .append(startUI.getMenu())
                         .append("------------ Спиcок всех имеющихся заявок:  --------------").append(System.lineSeparator())
-                        .append(Arrays.toString(this.test3)).append(System.lineSeparator())
-                        .append(System.lineSeparator())
-                        .append(startUI.getMenu()))));
+                        .append(test3[0].toString()).append(System.lineSeparator())
+                        .append(test3[1]).append(System.lineSeparator())
+                        .append(test3[2]).append(System.lineSeparator())
+                        )));
     }
 
     /**
@@ -134,7 +135,7 @@ public class StartUITest {
                         .append("------------ Поиск заявки по имени--------------").append(System.lineSeparator())
                         .append("------------ спиcок заявок с совпадающим именем: ").append(Arrays.toString(this.test2)).append("-----------").append(System.lineSeparator())
                         .append(System.lineSeparator())
-                        .append(startUI.getMenu()))));
+                        )));
     }
 
     /**
