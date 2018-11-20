@@ -37,13 +37,13 @@ public class StartUI {
      */
     private static final StringBuilder MENU = new StringBuilder()
             .append("Меню.").append(System.lineSeparator())
-            .append("Для добавления новой заявки введите ").append(ADD).append(System.lineSeparator())
-            .append("Для вывода списка всех заявок введите ").append(SHOW).append(System.lineSeparator())
-            .append("Для редактирования заявки введите ").append(EDIT).append(System.lineSeparator())
-            .append("Для удаления заявки ").append(DELETE).append(System.lineSeparator())
-            .append("Для поиска заявки по ID введите ").append(FINDBYID).append(System.lineSeparator())
-            .append("Для поиска заявки по имени введите ").append(FINDBYNAME).append(System.lineSeparator())
-            .append("Для выхода из программы введите ").append(EXIT).append(System.lineSeparator());
+            .append("Для добавления новой заявки нажмите ").append(ADD).append(System.lineSeparator())
+            .append("Для вывода списка всех заявок нажмите ").append(SHOW).append(System.lineSeparator())
+            .append("Для редактирования заявки нажмите ").append(EDIT).append(System.lineSeparator())
+            .append("Для удаления заявки нажмите ").append(DELETE).append(System.lineSeparator())
+            .append("Для поиска заявки по ID нажмите ").append(FINDBYID).append(System.lineSeparator())
+            .append("Для поиска заявки по имени нажмите ").append(FINDBYNAME).append(System.lineSeparator())
+            .append("Для выхода из программы нажмите ").append(EXIT).append(System.lineSeparator());
 
     /**
      * метод возвращающий значение меню для пользователя

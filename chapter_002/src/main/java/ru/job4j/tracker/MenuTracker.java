@@ -88,7 +88,7 @@ public class MenuTracker {
      * Метод выводит на экран меню.
      */
     public void show() {
-        System.out.println("Меню");
+        System.out.println("Меню.");
         for (UserAction action : this.actions) {
             if (action != null) {
                 System.out.println(action.info());
@@ -144,7 +144,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Для показа всех имеющихся заявок нажмите " + SHOW;
+            return "Для вывода списка всех заявок нажмите " + SHOW;
         }
     }
 
@@ -161,7 +161,18 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Редактирование --------------");
             String taskId = input.ask("Введите id заявки котрую требуется заменить : ");
-            if (tracker.idEsxists(taskId)) {
+            Item itemToChange = tracker.findById(taskId);
+            if (itemToChange == null) {
+                System.out.println("Данный ID не существует, введите верный ID");
+            }
+            else {
+                String taskName = input.ask("Введите новое имя заявки : ");
+                String taskDescription = input.ask("Введите новое описание заявки : ");
+                Item newItem = new Item(taskName, taskDescription);
+                tracker.replace(taskId, newItem);
+                System.out.println(newItem.toString());
+            }
+ /*           if (tracker.idEsxists(taskId)) {
                 String taskName = input.ask("Введите новое имя заявки : ");
                 String taskDescription = input.ask("Введите новое описание заявки : ");
                 Item newItem = new Item(taskName, taskDescription);
@@ -172,7 +183,7 @@ public class MenuTracker {
 //                System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
             } else {
                 System.out.println("Данный ID не существует, введите верный ID");
-            }
+            } */
             System.out.println();
         }
 
@@ -205,7 +216,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Для поиски заявки по ID нажмите " + FINDBYID;
+            return "Для поиска заявки по ID нажмите " + FINDBYID;
         }
     }
 
@@ -256,7 +267,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Для удаления заяки нажмите " + DELETE;
+            return "Для удаления заявки нажмите " + DELETE;
         }
     }
 
