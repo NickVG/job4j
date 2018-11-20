@@ -77,7 +77,6 @@ public class MenuTracker {
 
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
-     *
      * @param key ключ операции
      */
     public void select(int key) {
@@ -172,18 +171,6 @@ public class MenuTracker {
                 tracker.replace(taskId, newItem);
                 System.out.println(newItem.toString());
             }
- /*           if (tracker.idEsxists(taskId)) {
-                String taskName = input.ask("Введите новое имя заявки : ");
-                String taskDescription = input.ask("Введите новое описание заявки : ");
-                Item newItem = new Item(taskName, taskDescription);
-                tracker.replace(taskId, newItem);
-                System.out.println(newItem.toString());
-//                System.out.println("------------ Новое имя заявки: " + newItem.getName() + "-----------");
-//                System.out.println("------------ Новое описание заявки: " + newItem.getDescription() + "-----------");
-//                System.out.println("------------ ID заявки: " + newItem.getId() + "-----------");
-            } else {
-                System.out.println("Данный ID не существует, введите верный ID");
-            } */
             System.out.println();
         }
 
@@ -260,7 +247,7 @@ public class MenuTracker {
             if (tracker.idEsxists(taskId)) {
                 System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
             } else {
-                System.out.println("Данный ID не существует, введиет верный ID");
+                System.out.println("Данный ID не существует, введите верный ID");
             }
             System.out.println();
         }

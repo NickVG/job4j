@@ -165,7 +165,7 @@ public class StartUI {
         if (tracker.idEsxists(taskId)) {
             System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
         } else {
-            System.out.println("Данный ID не существует, введиет верный ID");
+            System.out.println("Данный ID не существует, введите верный ID");
         }
         System.out.println();
     }
