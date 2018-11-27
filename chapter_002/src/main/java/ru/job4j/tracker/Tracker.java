@@ -33,12 +33,6 @@ public class Tracker {
      * @return число заведённых заявок
      */
     public int idQuantity() {
-/*        int quantity = 0;
-        for (int i = 0; i < this.position; i++) {
-            if (items[i] != null) {
-                quantity++;
-            }
-        }*/
         return this.position;
     }
 
@@ -59,28 +53,34 @@ public class Tracker {
      * @param id   ID заявки
      * @param item сама новая заявка
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
         for (int i = 0; i < this.position; i++) {
             if (items[i].getId().equals(id)) {
                 item.setId(items[i].getId());
                 items[i] = item;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**
      * Метод для удаления заявок
      * @param id
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean result = false;
         for (int i = 0; i < this.position; i++) {
             if (items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, this.position - i - 1);
                 position--;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**
@@ -127,9 +127,9 @@ public class Tracker {
      * @param id ID заявки
      * @return result существует такой id или нет.
      */
-    public boolean idEsxists(String id) {
+    public boolean idExists(String id) {
         boolean result = false;
-        if (this.position != 0) {
+        if (findById(id) != null) {
             result = true;
         }
         return result;

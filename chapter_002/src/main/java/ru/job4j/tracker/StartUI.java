@@ -117,7 +117,7 @@ public class StartUI {
     private void modifyItem() {
         System.out.println("------------ Редактирование --------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется заменить : ");
-        if (tracker.idEsxists(taskId)) {
+        if (tracker.idExists(taskId)) {
             String taskName = this.input.ask("Введите новое имя заявки : ");
             String taskDescription = this.input.ask("Введите новое описание заявки : ");
             Item newItem = new Item(taskName, taskDescription);
@@ -137,7 +137,7 @@ public class StartUI {
     private void findById() {
         System.out.println("------------ Поиск заявки по ID--------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется найти : ");
-        if (tracker.idEsxists(taskId)) {
+        if (tracker.idExists(taskId)) {
             System.out.println("------------ ID требуемой заявки: " + tracker.findById(taskId).getId() + "-----------");
         } else {
             System.out.println("Данный ID не существует, введиет верный ID");
@@ -162,7 +162,7 @@ public class StartUI {
         System.out.println("------------ Удаление заявки --------------");
         String taskId = this.input.ask("Введите id заявки котрую требуется удалить : ");
         tracker.delete(taskId);
-        if (tracker.idEsxists(taskId)) {
+        if (tracker.idExists(taskId)) {
             System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
         } else {
             System.out.println("Данный ID не существует, введите верный ID");

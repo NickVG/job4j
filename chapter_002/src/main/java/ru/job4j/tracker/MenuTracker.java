@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.*;
+
 public class MenuTracker {
     /**
      * Константа меню для добавления новой заявки.
@@ -56,6 +57,7 @@ public class MenuTracker {
 
     /**
      * Метод для получения массива меню.
+     *
      * @return длина массива
      */
     public int getActionsLentgh() {
@@ -77,6 +79,7 @@ public class MenuTracker {
 
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
+     *
      * @param key ключ операции
      */
     public void select(int key) {
@@ -158,18 +161,21 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println("------------ Редактирование --------------");
-            String taskId = input.ask("Введите id заявки котрую требуется заменить : ");
-            Item itemToChange = tracker.findById(taskId);
-            if (itemToChange == null) {
-                System.out.println("Данный ID не существует, введите верный ID");
-            }
-            else {
-                String taskName = input.ask("Введите новое имя заявки : ");
-                String taskDescription = input.ask("Введите новое описание заявки : ");
-                Item newItem = new Item(taskName, taskDescription);
-                tracker.replace(taskId, newItem);
-                System.out.println(newItem.toString());
+            if (tracker.idQuantity() != 0) {
+                System.out.println("------------ Редактирование --------------");
+                String taskId = input.ask("Введите id заявки котрую требуется заменить : ");
+                Item itemToChange = tracker.findById(taskId);
+                if (tracker.replace(taskId, itemToChange)) {
+                    String taskName = input.ask("Введите новое имя заявки : ");
+                    String taskDescription = input.ask("Введите новое описание заявки : ");
+                    Item newItem = new Item(taskName, taskDescription);
+                    tracker.replace(taskId, newItem);
+                    System.out.println(newItem.toString());
+                } else {
+                    System.out.println("Данный ID не существует, введите верный ID");
+                }
+            } else {
+                System.out.println("В трекере не существует заведённых заявок");
             }
             System.out.println();
         }
@@ -191,12 +197,17 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println("------------ Поиск заявки по ID--------------");
-            String taskId = input.ask("Введите id заявки котрую требуется найти : ");
-            if (tracker.idEsxists(taskId)) {
-                System.out.println("------------ ID требуемой заявки: " + tracker.findById(taskId).getId() + "-----------");
+            if (tracker.idQuantity() != 0) {
+                System.out.println("------------ Поиск заявки по ID--------------");
+                String taskId = input.ask("Введите id заявки котрую требуется найти : ");
+                if (tracker.idExists(taskId)) {
+                    Item item = tracker.findById(taskId);
+                    System.out.println("------------ Требуемая заявка: " + item.toString() + "-----------");
+                } else {
+                    System.out.println("Данный ID не существует, введите верный ID");
+                }
             } else {
-                System.out.println("Данный ID не существует, введиет верный ID");
+                System.out.println("В трекере не существует заведённых заявок");
             }
             System.out.println();
         }
@@ -218,9 +229,13 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println("------------ Поиск заявки по имени--------------");
-            String taskName = input.ask("Введите имя заявки котрую требуется найти: ");
-            System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
+            if (tracker.idQuantity() != 0) {
+                System.out.println("------------ Поиск заявки по имени--------------");
+                String taskName = input.ask("Введите имя заявки котрую требуется найти: ");
+                System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
+            } else {
+                System.out.println("В трекере не существует заведённых заявок");
+            }
             System.out.println();
         }
 
@@ -241,13 +256,17 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println("------------ Удаление заявки --------------");
-            String taskId = input.ask("Введите id заявки котрую требуется удалить : ");
-            tracker.delete(taskId);
-            if (tracker.idEsxists(taskId)) {
-                System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
+            if (tracker.idQuantity() != 0) {
+                System.out.println("------------ Удаление заявки --------------");
+                String taskId = input.ask("Введите id заявки котрую требуется удалить : ");
+                tracker.delete(taskId);
+                if (tracker.delete(taskId)) {
+                    System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
+                } else {
+                    System.out.println("Данный ID не существует, введите верный ID");
+                }
             } else {
-                System.out.println("Данный ID не существует, введите верный ID");
+                System.out.println("В трекере не существует заведённых заявок");
             }
             System.out.println();
         }
