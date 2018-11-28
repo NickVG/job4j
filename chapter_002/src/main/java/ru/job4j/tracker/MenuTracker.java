@@ -140,7 +140,7 @@ public class MenuTracker {
                 System.out.println(item);
             }
             if (all.length == 0) {
-                System.out.println("В трекере нет заведённых заявок.");
+                System.out.println("В трекере не существует ни одной заведённой заявки.");
             }
         }
 
@@ -175,7 +175,7 @@ public class MenuTracker {
                     System.out.println("Данный ID не существует, введите верный ID");
                 }
             } else {
-                System.out.println("В трекере не существует заведённых заявок");
+                System.out.println("В трекере не существует ни одной заведённой заявки");
             }
             System.out.println();
         }
@@ -200,14 +200,14 @@ public class MenuTracker {
             if (tracker.idQuantity() != 0) {
                 System.out.println("------------ Поиск заявки по ID--------------");
                 String taskId = input.ask("Введите id заявки котрую требуется найти : ");
-                if (tracker.idExists(taskId)) {
-                    Item item = tracker.findById(taskId);
-                    System.out.println("------------ Требуемая заявка: " + item.toString() + "-----------");
+                Item item = tracker.findById(taskId);
+                if (item != null) {
+                     System.out.println("------------ Требуемая заявка: " + item.toString() + "-----------");
                 } else {
                     System.out.println("Данный ID не существует, введите верный ID");
                 }
             } else {
-                System.out.println("В трекере не существует заведённых заявок");
+                System.out.println("В трекере не существует ни одной заведённой заявки");
             }
             System.out.println();
         }
@@ -232,9 +232,14 @@ public class MenuTracker {
             if (tracker.idQuantity() != 0) {
                 System.out.println("------------ Поиск заявки по имени--------------");
                 String taskName = input.ask("Введите имя заявки котрую требуется найти: ");
-                System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
+                Item[] items = tracker.findByName(taskName);
+                if (items != null) {
+                    System.out.println("------------ спиcок заявок с совпадающим именем: " + (Arrays.toString(tracker.findByName(taskName))) + "-----------");
+                } else {
+                    System.out.println("В трекере не существует заведённых заявок c таким именем");
+                }
             } else {
-                System.out.println("В трекере не существует заведённых заявок");
+                System.out.println("В трекере не существует ни одной заведённой заявки");
             }
             System.out.println();
         }
@@ -259,14 +264,13 @@ public class MenuTracker {
             if (tracker.idQuantity() != 0) {
                 System.out.println("------------ Удаление заявки --------------");
                 String taskId = input.ask("Введите id заявки котрую требуется удалить : ");
-                tracker.delete(taskId);
                 if (tracker.delete(taskId)) {
                     System.out.println("------------ Заявка удалена, новое количество имеющихся заявок: " + tracker.idQuantity() + "-----------");
                 } else {
                     System.out.println("Данный ID не существует, введите верный ID");
                 }
             } else {
-                System.out.println("В трекере не существует заведённых заявок");
+                System.out.println("В трекере не существует ни одной заведённой заявки");
             }
             System.out.println();
         }
