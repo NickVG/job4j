@@ -4,34 +4,35 @@ import java.lang.*;
 import java.util.Arrays;
 import java.util.*;
 public class StartUI {
+    private int[] ranges = new int[] {0, 1, 2, 3, 4, 5, 6};
     /**
      * Константа меню для добавления новой заявки.
      */
-    private static final String ADD = "0";
+    private static final int ADD = 0;
     /**
      * Константа для Показа всех заявок.
      */
-    private static final String SHOW = "1";
+    private static final int SHOW = 1;
     /**
      * Константа для редактирования заявки.
      */
-    private static final String EDIT = "2";
+    private static final int EDIT = 2;
     /**
      * Константа для удаления заявки
      */
-    private static final String DELETE = "3";
+    private static final int DELETE = 3;
     /**
      * Константа для поиска заявки по ID.
      */
-    private static final String FINDBYID = "4";
+    private static final int FINDBYID = 4;
     /**
      * Константа для поиска заявки по имени.
      */
-    private static final String FINDBYNAME = "5";
+    private static final int FINDBYNAME = 5;
     /**
      * Константа для выхода из цикла.
      */
-    private static final String EXIT = "6";
+    private static final int EXIT = 6;
     /**
      * Константа содержащая в себе список меню для пользователя
      */
@@ -85,7 +86,7 @@ public class StartUI {
         }
         do {
             menu.show();
-            menu.select(Integer.parseInt(input.ask("Выберите пункт меню.")));
+            menu.select(input.ask("Выберите пункт меню.", ranges));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
@@ -183,6 +184,7 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+//        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
