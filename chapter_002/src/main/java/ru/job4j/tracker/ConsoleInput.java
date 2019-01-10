@@ -3,7 +3,7 @@ import java.lang.*;
 import java.util.Scanner;
 
 /** Class ConsoleInput
- * Реализаци якласса ConsoleInput
+ * Реализация класса ConsoleInput
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.1

@@ -1,5 +1,11 @@
 package ru.job4j.tracker;
 
+/** class StubInput
+ * Реализация класса StubInput
+ * @author nikolay gorbunov
+ * @version $Id$
+ * @since 0.1
+ */
 public class StubInput implements Input {
     /**
      * Это поле содержит последовательность ответов пользователя.

@@ -2,47 +2,102 @@ package ru.job4j.tracker;
 
 import java.util.*;
 
+/** Class MenuTracker
+ * Реализация класса MenuTracker
+ * @author nikolay gorbunov
+ * @version $Id$
+ * @since 0.1
+ */
 public class MenuTracker {
     /**
      * Константа меню для добавления новой заявки.
      */
-    private static final String ADD = "0";
+    private static final int ADD = 0;
     /**
      * Константа для Показа всех заявок.
      */
-    private static final String SHOW = "1";
+    private static final int SHOW = 1;
     /**
      * Константа для редактирования заявки.
      */
-    private static final String EDIT = "2";
+    private static final int EDIT = 2;
     /**
      * Константа для удаления заявки
      */
-    private static final String DELETE = "3";
+    private static final int DELETE = 3;
     /**
      * Константа для поиска заявки по ID.
      */
-    private static final String FINDBYID = "4";
+    private static final int FINDBYID = 4;
     /**
      * Константа для поиска заявки по имени.
      */
-    private static final String FINDBYNAME = "5";
+    private static final int FINDBYNAME = 5;
     /**
      * Константа для выхода из цикла.
      */
-    private static final String EXIT = "6";
+    private static final int EXIT = 6;
     /**
-     * @param хранит ссылку на объект .
+     * @param хранит ссылку на объект Input.
      */
     private Input input;
     /**
-     * @param хранит ссылку на объект .
+     * @param хранит ссылку на объект Tracker.
      */
     private Tracker tracker;
     /**
      * @param хранит ссылку на массив типа UserAction.
      */
     private List<UserAction> actions = new ArrayList<>();
+
+    /**
+     * Метод для получения значения меню для добавления новой заявки.
+     */
+    public static int getADD() {
+        return ADD;
+    }
+
+    /**
+     * Метод для получения значения меню для показа всех заявок.
+     */
+    public static int getSHOW() {
+        return SHOW;
+    }
+
+    /**
+     * Метод для получения значения меню для редактирования заявки.
+     */
+    public static int getEDIT() {
+        return EDIT;
+    }
+
+    /**
+     * Метод для получения значения меню для удаления заявки.
+     */
+    public static int getDELETE() {
+        return EXIT;
+    }
+
+    /**
+     * Метод для получения значения меню для поиска заявки по ID.
+     */
+    public static int getFINDBYID() {
+        return FINDBYID;
+    }
+
+    /**
+     * Метод для получения значения меню для поиска заявки по имени.
+     */
+    public static int getFINDBYNAME() {
+        return FINDBYNAME;
+    }
+
+    /**
+     * Метод для получения значения меню для выхода из цикла.
+     */
+    public static int getEXIT() {
+        return EXIT;
+    }
 
     /**
      * Конструктор.
@@ -57,10 +112,9 @@ public class MenuTracker {
 
     /**
      * Метод для получения массива меню.
-     *
      * @return длина массива
      */
-    public int getActionsLentgh() {
+    public int getActionsLength() {
         return this.actions.size();
     }
 
@@ -104,7 +158,7 @@ public class MenuTracker {
     public class CreateItem implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(ADD);
+            return ADD;
         }
 
         @Override
@@ -129,7 +183,7 @@ public class MenuTracker {
     public class ShowAllItems implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(SHOW);
+            return SHOW;
         }
 
         @Override
@@ -156,7 +210,7 @@ public class MenuTracker {
     public static class ModifyItem implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(SHOW);
+            return SHOW;
         }
 
         @Override
@@ -192,7 +246,7 @@ public class MenuTracker {
     public class FindById implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(FINDBYID);
+            return FINDBYID;
         }
 
         @Override
@@ -224,7 +278,7 @@ public class MenuTracker {
     public class FindByName implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(FINDBYNAME);
+            return FINDBYNAME;
         }
 
         @Override
@@ -256,7 +310,7 @@ public class MenuTracker {
     public static class DeleteItem implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(DELETE);
+            return DELETE;
         }
 
         @Override
@@ -287,7 +341,7 @@ public class MenuTracker {
     public class ExitFromProgramm implements UserAction {
         @Override
         public int key() {
-            return Integer.parseInt(EXIT);
+            return EXIT;
         }
 
         @Override

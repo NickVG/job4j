@@ -3,48 +3,27 @@ package ru.job4j.tracker;
 import java.lang.*;
 import java.util.Arrays;
 import java.util.*;
+
+/** Class StartUI
+ * Реализация класса StartUI
+ * @author nikolay gorbunov
+ * @version $Id$
+ * @since 0.1
+ */
 public class StartUI {
-    private int[] ranges = new int[] {0, 1, 2, 3, 4, 5, 6};
-    /**
-     * Константа меню для добавления новой заявки.
-     */
-    private static final int ADD = 0;
-    /**
-     * Константа для Показа всех заявок.
-     */
-    private static final int SHOW = 1;
-    /**
-     * Константа для редактирования заявки.
-     */
-    private static final int EDIT = 2;
-    /**
-     * Константа для удаления заявки
-     */
-    private static final int DELETE = 3;
-    /**
-     * Константа для поиска заявки по ID.
-     */
-    private static final int FINDBYID = 4;
-    /**
-     * Константа для поиска заявки по имени.
-     */
-    private static final int FINDBYNAME = 5;
-    /**
-     * Константа для выхода из цикла.
-     */
-    private static final int EXIT = 6;
+    private int[] ranges;
     /**
      * Константа содержащая в себе список меню для пользователя
      */
     private static final StringBuilder MENU = new StringBuilder()
             .append("Меню.").append(System.lineSeparator())
-            .append("Для добавления новой заявки нажмите ").append(ADD).append(System.lineSeparator())
-            .append("Для вывода списка всех заявок нажмите ").append(SHOW).append(System.lineSeparator())
-            .append("Для редактирования заявки нажмите ").append(EDIT).append(System.lineSeparator())
-            .append("Для удаления заявки нажмите ").append(DELETE).append(System.lineSeparator())
-            .append("Для поиска заявки по ID нажмите ").append(FINDBYID).append(System.lineSeparator())
-            .append("Для поиска заявки по имени нажмите ").append(FINDBYNAME).append(System.lineSeparator())
-            .append("Для выхода из программы нажмите ").append(EXIT).append(System.lineSeparator());
+            .append("Для добавления новой заявки нажмите ").append(MenuTracker.getADD()).append(System.lineSeparator())
+            .append("Для вывода списка всех заявок нажмите ").append(MenuTracker.getSHOW()).append(System.lineSeparator())
+            .append("Для редактирования заявки нажмите ").append(MenuTracker.getEDIT()).append(System.lineSeparator())
+            .append("Для удаления заявки нажмите ").append(MenuTracker.getDELETE()).append(System.lineSeparator())
+            .append("Для поиска заявки по ID нажмите ").append(MenuTracker.getFINDBYID()).append(System.lineSeparator())
+            .append("Для поиска заявки по имени нажмите ").append(MenuTracker.getFINDBYNAME()).append(System.lineSeparator())
+            .append("Для выхода из программы нажмите ").append(MenuTracker.getEXIT()).append(System.lineSeparator());
 
     /**
      * метод возвращающий значение меню для пользователя
@@ -81,13 +60,16 @@ public class StartUI {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         List<Integer> range = new ArrayList<>();
         menu.fillActions();
-        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+        this.ranges = new int[menu.getActionsLength()];
+        for (int i = 0; i < menu.getActionsLength(); i++) {
+            this.ranges[i] = i;
             range.add(i);
         }
         do {
             menu.show();
             menu.select(input.ask("Выберите пункт меню.", ranges));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
+
     }
 
     /**
@@ -184,6 +166,7 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
+        System.out.println(MenuTracker.getADD());
 //        new StartUI(new ConsoleInput(), new Tracker()).init();
         new StartUI(new ValidateInput(), new Tracker()).init();
     }

@@ -25,7 +25,7 @@ public class Log {
 package ru.job4j.tracker;
 
 /** Class ConsoleInput
- * Реализаци якласса Log
+ * Реализация класса Log
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.1

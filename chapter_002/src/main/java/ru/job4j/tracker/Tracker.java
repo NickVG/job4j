@@ -4,7 +4,7 @@ import java.lang.*;
 import java.util.*;
 
 /** Class Tracker
- * Реализаци якласса Tracker
+ * Реализация класса Tracker
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.1
