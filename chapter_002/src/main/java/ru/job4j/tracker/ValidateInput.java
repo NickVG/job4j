@@ -4,7 +4,7 @@ package ru.job4j.tracker;
  * Реализация класса ValidateInput для обработки исключений
  * @author nikolay gorbunov
  * @version $Id$
- * @since 0.1
+ * @since 0.01
  */
 public class ValidateInput extends ConsoleInput {
     public int ask(String question, int[] range) {
@@ -16,8 +16,7 @@ public class ValidateInput extends ConsoleInput {
                 invalid = false;
             } catch (MenuOutException moe) {
                 System.out.println("Введённый ключ неверен. Введите верный параметр как показано в меню.");
-            }
-            catch (NumberFormatException nfe) {
+            } catch (NumberFormatException nfe) {
                 System.out.println("Введённый ключ не является числом. Введите верный параметр как показано в меню.");
             }
         } while (invalid);

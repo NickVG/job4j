@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Реализация класса ConsoleInput
  * @author nikolay gorbunov
  * @version $Id$
- * @since 0.1
+ * @since 0.01
  */
 public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class ConsoleInput implements Input {
         if (exist) {
             return key;
         } else {
-            throw new MenuOutException("Out of menu reange.");
+            throw new MenuOutException("Out of menu range.");
         }
     }
 }

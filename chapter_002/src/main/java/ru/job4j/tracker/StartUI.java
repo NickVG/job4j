@@ -8,7 +8,7 @@ import java.util.*;
  * Реализация класса StartUI
  * @author nikolay gorbunov
  * @version $Id$
- * @since 0.1
+ * @since 0.01
  */
 public class StartUI {
     private int[] ranges;
