@@ -111,27 +111,30 @@ public class Tracker {
      * Метод для получения заявки по id
      * @param id ID заявки
      * @return result заявка
+     * @Nullable
      */
     public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item.getId().equals(id)) {
                 result = item;
+                this.taskExists = true;
                 break;
             }
         }
         return result;
     }
+
+    /**
+     * переменная для хранения результата о том, что заявка существует.
+     */
+    private boolean taskExists = false;
     /**
      * Метод для проверки существования id
      * @param id ID заявки
      * @return result существует такой id или нет.
      */
     public boolean idExists(String id) {
-        boolean result = false;
-        if (findById(id) != null) {
-            result = true;
-        }
-        return result;
+        return this.taskExists;
     }
 }

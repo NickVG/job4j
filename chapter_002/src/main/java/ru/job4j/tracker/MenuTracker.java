@@ -110,6 +110,14 @@ public class MenuTracker {
         this.tracker = tracker;
     }
 
+ /*   public int[] menuLength() {
+        int[] range = new int[getActionsLength()];
+        for (int i = 0; i < getActionsLength(); i++) {
+            range[i] = i;
+        }
+        return range;
+    }
+*/
     /**
      * Метод для получения массива меню.
      * @return длина массива
@@ -119,9 +127,9 @@ public class MenuTracker {
     }
 
     /**
-     * Метод заполняет массив.
+     * Метод заполняет массив, а также возвращает массив с диапазоном возможных вариатов вызова меню
      */
-    public void fillActions() {
+    public int[] fillActions() {
         this.actions.add(new CreateItem());
         this.actions.add(new ShowAllItems());
         this.actions.add(new MenuTracker.ModifyItem());
@@ -129,6 +137,11 @@ public class MenuTracker {
         this.actions.add(new FindById());
         this.actions.add(new FindByName());
         this.actions.add(new ExitFromProgramm());
+        int[] range = new int[getActionsLength()];
+        for (int i = 0; i < getActionsLength(); i++) {
+            range[i] = i;
+        }
+        return range;
     }
 
     /**
@@ -218,15 +231,16 @@ public class MenuTracker {
             if (tracker.idQuantity() != 0) {
                 System.out.println("------------ Редактирование --------------");
                 String taskId = input.ask("Введите id заявки котрую требуется заменить : ");
-                Item itemToChange = tracker.findById(taskId);
-                if (tracker.replace(taskId, itemToChange)) {
+                if (tracker.idExists(taskId)) {
+                    Item itemToChange = tracker.findById(taskId);
+                    tracker.replace(taskId, itemToChange);
                     String taskName = input.ask("Введите новое имя заявки : ");
                     String taskDescription = input.ask("Введите новое описание заявки : ");
                     Item newItem = new Item(taskName, taskDescription);
                     tracker.replace(taskId, newItem);
                     System.out.println(newItem.toString());
                 } else {
-                    System.out.println("Данный ID не существует, введите верный ID");
+                    System.out.println("Введённый ID не существует");
                 }
             } else {
                 System.out.println("В трекере не существует ни одной заведённой заявки");

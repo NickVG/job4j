@@ -58,17 +58,11 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        List<Integer> range = new ArrayList<>();
-        menu.fillActions();
-        this.ranges = new int[menu.getActionsLength()];
-        for (int i = 0; i < menu.getActionsLength(); i++) {
-            this.ranges[i] = i;
-            range.add(i);
-        }
+        this.ranges = menu.fillActions();
         do {
             menu.show();
             menu.select(input.ask("Выберите пункт меню.", ranges));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        } while (!"y".equals(this.input.ask("Для выходы из программы нажмите (y). Для продолжения нажмите любую другую клавишу.")));
 
     }
 
@@ -167,7 +161,12 @@ public class StartUI {
      */
     public static void main(String[] args) {
         System.out.println(MenuTracker.getADD());
-//        new StartUI(new ConsoleInput(), new Tracker()).init();
-        new StartUI(new ValidateInput(), new Tracker()).init();
+        new StartUI(
+                new ValidateInput(
+                        new ConsoleInput()
+
+                ),
+                new Tracker()
+        ).init();
     }
 }

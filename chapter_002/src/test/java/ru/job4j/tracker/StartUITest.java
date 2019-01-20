@@ -72,19 +72,6 @@ public class StartUITest {
     }
 
     /**
-     * Второй метод проверяющий поиск всех заявок
-     * создаём StubInput с последовательностью действий(производим замену заявки)
-     * создаём StartUI и вызываем метод init()
-     * проверяем, что в консоль выводятся верные заявки.
-     */
-    @Test
-    public void whenShowAllTasks2() {
-        Input input = new StubInput(new String[]{"1", "6"});
-        new NoStringsStartUI(input, this.tracker).init();
-        assertThat(new String(out.toByteArray()), is(Arrays.toString(this.test3)));
-    }
-
-    /**
      * метод проверяющий обновление заявки
      * создаём StubInput с последовательностью действий(производим замену заявки)
      * создаём StartUI и вызываем метод init()
@@ -136,19 +123,6 @@ public class StartUITest {
                         .append("------------ спиcок заявок с совпадающим именем: ").append(Arrays.toString(this.test2)).append("-----------").append(System.lineSeparator())
                         .append(System.lineSeparator())
                         )));
-    }
-
-    /**
-     * Метод проверяющий поиск заявик по имени
-     * создаём StubInput с последовательностью действий(производим писк заявок по имени)
-     * создаём NoStringsStartUI и вызываем метод init()
-     * проверяем, что Вывод в консоль совпадает с предпологаемым результатом
-     */
-    @Test
-    public void whenShowAllTasksByName2() {
-        Input input = new StubInput(new String[]{"5", "test name1", "6"});
-        new NoStringsStartUI(input, this.tracker).init();
-        assertThat(new String(out.toByteArray()), is(Arrays.toString(this.test2)));
     }
 
     /**
