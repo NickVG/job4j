@@ -147,7 +147,7 @@ public class MenuTracker {
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
      *
-     * @param key ключ операции
+     * @param key ключ операции(пункт меню, который требуется выбрать)
      */
     public void select(int key) {
         this.actions.get(key).execute(this.input, this.tracker);
