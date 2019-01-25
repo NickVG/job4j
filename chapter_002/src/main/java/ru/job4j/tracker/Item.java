@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
-/** Class Item
+/**
+ * Class Item
  * Реализация класса Item
+ *
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.1
@@ -10,6 +12,7 @@ public class Item {
     private String id;
     public String description, name;
     public long create;
+
     public Item() {
     }
 
@@ -54,6 +57,7 @@ public class Item {
 
     /**
      * переопределение toString
+     *
      * @return содержимое Item
      */
     @Override

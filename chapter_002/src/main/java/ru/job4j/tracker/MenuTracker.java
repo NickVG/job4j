@@ -2,8 +2,10 @@ package ru.job4j.tracker;
 
 import java.util.*;
 
-/** Class MenuTracker
+/**
+ * Class MenuTracker
  * Реализация класса MenuTracker
+ *
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.1
@@ -118,8 +120,10 @@ public class MenuTracker {
         return range;
     }
 */
+
     /**
      * Метод для получения массива меню.
+     *
      * @return длина массива
      */
     public int getActionsLength() {
@@ -270,7 +274,7 @@ public class MenuTracker {
                 String taskId = input.ask("Введите id заявки котрую требуется найти : ");
                 Item item = tracker.findById(taskId);
                 if (item != null) {
-                     System.out.println("------------ Требуемая заявка: " + item.toString() + "-----------");
+                    System.out.println("------------ Требуемая заявка: " + item.toString() + "-----------");
                 } else {
                     System.out.println("Данный ID не существует, введите верный ID");
                 }

@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
-/** class StubInput
+/**
+ * class StubInput
  * Реализация класса StubInput
+ *
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.1
@@ -42,7 +44,6 @@ public class StubInput implements Input {
     }
 
     public int ask(String question, int[] range) {
-      //  throw new UnsupportedOperationException("Unsupported operation");
         return -1;
     }
 }

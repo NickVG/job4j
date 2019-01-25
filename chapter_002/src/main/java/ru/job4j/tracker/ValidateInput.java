@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
-/** Class ValidateInput
+/**
+ * Class ValidateInput
  * Реализация класса ValidateInput для обработки исключений
+ *
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.01
@@ -33,6 +35,6 @@ public class ValidateInput implements Input {
                 System.out.println("Please enter validate data again.");
             }
         } while (invalid);
-        return  value;
+        return value;
     }
 }

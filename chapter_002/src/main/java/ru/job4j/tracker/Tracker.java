@@ -3,8 +3,10 @@ package ru.job4j.tracker;
 import java.lang.*;
 import java.util.*;
 
-/** Class Tracker
+/**
+ * Class Tracker
  * Реализация класса Tracker
+ *
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.1
@@ -22,7 +24,8 @@ public class Tracker {
 
     /**
      * метод генерирующий ID заявки
-     *@return ID заявки
+     *
+     * @return ID заявки
      */
     private String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
@@ -30,6 +33,7 @@ public class Tracker {
 
     /**
      * Метод для подсчёта заведённых заявок
+     *
      * @return число заведённых заявок
      */
     public int idQuantity() {
@@ -38,6 +42,7 @@ public class Tracker {
 
     /**
      * Метод реализующий добавление заявки в хранилище
+     *
      * @param item новая заявка
      * @return item
      */
@@ -68,6 +73,7 @@ public class Tracker {
 
     /**
      * Метод для удаления заявок
+     *
      * @param id
      */
     public boolean delete(String id) {
@@ -85,14 +91,16 @@ public class Tracker {
 
     /**
      * Метод для получения списка всех заявок
+     *
      * @return список всех заявок
      */
     public Item[] findAll() {
-        return  Arrays.copyOf(this.items, position);
+        return Arrays.copyOf(this.items, position);
     }
 
     /**
      * Метод для получения списка по имени
+     *
      * @param key Имя завяки
      * @return список заявок в котором совпадает имя
      */
@@ -109,6 +117,7 @@ public class Tracker {
 
     /**
      * Метод для получения заявки по id
+     *
      * @param id ID заявки
      * @return result заявка
      * @Nullable
@@ -118,7 +127,7 @@ public class Tracker {
         for (Item item : items) {
             if (item.getId().equals(id)) {
                 result = item;
-                this.taskExists = true;
+//                this.taskExists = true;
                 break;
             }
         }
@@ -127,14 +136,17 @@ public class Tracker {
 
     /**
      * переменная для хранения результата о том, что заявка существует.
-     */
+
     private boolean taskExists = false;
+*/
+
     /**
      * Метод для проверки существования id
+     *
      * @param id ID заявки
      * @return result существует такой id или нет.
      */
     public boolean idExists(String id) {
-        return this.taskExists;
+        return true;
     }
 }

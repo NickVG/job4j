@@ -160,7 +160,6 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println(MenuTracker.getADD());
         new StartUI(
                 new ValidateInput(
                         new ConsoleInput()

@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
-/** Class MenuOutException
+/**
+ * Class MenuOutException
  * Реализация класса MenuOutException
+ *
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.01

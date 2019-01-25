@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
-/** Interface Input
+/**
+ * Interface Input
  * Реализаци интерфейса Input
+ *
  * @author nikolay gorbunov
  * @version $Id$
  * @since 0.01
