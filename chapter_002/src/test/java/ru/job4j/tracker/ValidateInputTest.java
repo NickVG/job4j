@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 /**
- * //Класс для проведения тестов на ValidateInput.
+ * Класс для проведения тестов на ValidateInput.
  *
  * @author Petr Arsentev (parsentev@yandex.ru)
  * @version $Id$

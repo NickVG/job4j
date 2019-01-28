@@ -127,18 +127,11 @@ public class Tracker {
         for (Item item : items) {
             if (item.getId().equals(id)) {
                 result = item;
-//                this.taskExists = true;
                 break;
             }
         }
         return result;
     }
-
-    /**
-     * переменная для хранения результата о том, что заявка существует.
-
-    private boolean taskExists = false;
-*/
 
     /**
      * Метод для проверки существования id

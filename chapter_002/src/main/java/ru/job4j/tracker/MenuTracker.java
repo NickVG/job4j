@@ -112,15 +112,6 @@ public class MenuTracker {
         this.tracker = tracker;
     }
 
- /*   public int[] menuLength() {
-        int[] range = new int[getActionsLength()];
-        for (int i = 0; i < getActionsLength(); i++) {
-            range[i] = i;
-        }
-        return range;
-    }
-*/
-
     /**
      * Метод для получения массива меню.
      *

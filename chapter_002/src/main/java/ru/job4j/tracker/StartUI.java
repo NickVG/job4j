@@ -12,6 +12,7 @@ import java.util.*;
  */
 public class StartUI {
     private int[] ranges;
+
     /**
      * Константа содержащая в себе список меню для пользователя
      */
