@@ -67,7 +67,13 @@ public class StartUITest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});
-        new StartUI(input, this.tracker).init();
+        new StartUI(
+                new ValidateInput(
+                        input
+
+                ),
+                new Tracker()
+        ).init();
         assertThat(this.tracker.findAll()[3].getName(), is("test name"));
     }
 
